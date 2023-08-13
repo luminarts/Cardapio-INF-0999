@@ -1,12 +1,31 @@
-﻿<Window x:Class="Cardapio_INF_0999.MainWindow"
+<Window x:Class="Fast_Foodly.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Cardapio_INF_0999"
+        xmlns:local="clr-namespace:Fast_Foodly"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.Background>
+            <ImageBrush/>
+        </Grid.Background>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Center" Height="122" VerticalAlignment="Top" Width="800" OpacityMask="Black" Background="#FF570BB7">
+            <TextBlock HorizontalAlignment="Left" Height="26" Margin="136,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230" FontFamily="Segoe UI Symbol" Foreground="White" FontSize="24"><Run Language="pt-br" Text="Olá"/></TextBlock>
+        </Border>
+        <TextBlock HorizontalAlignment="Left" Height="49" Margin="129,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" FontFamily="Segoe UI Symbol" Foreground="White" FontSize="36"><Run Text="Se"/><Run Text="ja Bem"/><Run Language="pt-br" Text="-V"/><Run Text="indo(a)"/></TextBlock>
+        <Image Margin="10,44,680,315" Source="/LogoFastFoodly(1).png" Stretch="Fill"/>
+        <TextBox HorizontalAlignment="Left" Height="24" Margin="556,8,0,0" TextWrapping="Wrap" Text="Cardápio" VerticalAlignment="Top" Width="56" TextChanged="TextBox_TextChanged" Background="#FF570BB7" OpacityMask="#FF570BB7" BorderBrush="#FF570BB7" Foreground="White" FontFamily="Segoe UI Symbol"/>
+        <TextBox HorizontalAlignment="Left" Height="24" Margin="645,8,0,0" TextWrapping="Wrap" Text="Pedido" VerticalAlignment="Top" Width="56" TextChanged="TextBox_TextChanged" Background="#FF570BB7" OpacityMask="#FF570BB7" BorderBrush="#FF570BB7" Foreground="White" FontFamily="Segoe UI Symbol"/>
+        <TextBlock HorizontalAlignment="Left" Height="24" Margin="129,161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82" FontFamily="Segoe UI Symbol" FontSize="16" Foreground="#FF9D9797" FontWeight="Bold"><Run Language="pt-br" Text="Categorias"/></TextBlock>
+        <Rectangle HorizontalAlignment="Left" Height="82" Margin="129,185,0,0" Stroke="Black" VerticalAlignment="Top" Width="82"/>
+        <Rectangle HorizontalAlignment="Left" Height="82" Margin="216,185,0,0" Stroke="Black" VerticalAlignment="Top" Width="82"/>
+        <Rectangle HorizontalAlignment="Left" Height="82" Margin="303,185,0,0" Stroke="Black" VerticalAlignment="Top" Width="82"/>
+        <Rectangle HorizontalAlignment="Left" Height="82" Margin="390,185,0,0" Stroke="Black" VerticalAlignment="Top" Width="82"/>
+        <TextBlock HorizontalAlignment="Left" Height="24" Margin="129,243,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82" FontFamily="Segoe UI Symbol" FontSize="14" Foreground="#FF9D9797" FontWeight="Bold" TextAlignment="Center"><Run Language="pt-br" Text="Aperitivos"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="24" Margin="216,243,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82" FontFamily="Segoe UI Symbol" FontSize="14" Foreground="#FF9D9797" FontWeight="Bold" TextAlignment="Center"><Run Language="pt-br" Text="Lanches"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="24" Margin="303,243,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82" FontFamily="Segoe UI Symbol" FontSize="14" Foreground="#FF9D9797" FontWeight="Bold" TextAlignment="Center"><Run Language="pt-br" Text="Combos"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="24" Margin="390,243,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82" FontFamily="Segoe UI Symbol" FontSize="14" Foreground="#FF9D9797" FontWeight="Bold" TextAlignment="Center"><Run Language="pt-br" Text="Bebidas"/></TextBlock>
 
     </Grid>
 </Window>
