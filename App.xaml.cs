@@ -13,5 +13,6 @@ namespace FastFoodly
     /// </summary>
     public partial class App : Application
     {
+        string connectionString = ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,9 @@ namespace Fast_Foodly
         public MainWindow()
         {
             InitializeComponent();
+            string sqlConnectionString = ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
+            var database = new DatabaseService(sqlConnectionString);
+            var cardapio = database.ConsultaCardapio();
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
