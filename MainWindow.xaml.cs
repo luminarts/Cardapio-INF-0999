@@ -25,7 +25,7 @@ namespace Fast_Foodly
         {
             InitializeComponent();
             string sqlConnectionString = ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
-            var database = new DatabaseService(sqlConnectionString);
+            var database = new FastFoodly.DatabaseService(sqlConnectionString);
             var cardapio = database.ConsultaCardapio();
         }
 
