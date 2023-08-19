@@ -23,8 +23,12 @@ namespace Fast_Foodly
         public MainWindow()
         {
             InitializeComponent();
+            //MainFrame.Navigate(new Uri("MainWindow.xaml", UriKind.Relative));
         }
-
+        private void Categoria(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new Uri("Categoria.xaml", UriKind.Relative));
+        }
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
@@ -32,10 +36,15 @@ namespace Fast_Foodly
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            //MainFrame.Navigate(new Categoria());
         }
 
         private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void txtSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }

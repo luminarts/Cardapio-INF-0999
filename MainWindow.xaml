@@ -6,72 +6,115 @@
         xmlns:local="clr-namespace:Fast_Foodly"
         mc:Ignorable="d"
         Title="MainWindow" Height="568" Width="800">
-    <Grid>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Center" Height="122" VerticalAlignment="Top" Width="800" OpacityMask="Black" Background="#FF570BB7">
+    <Grid UseLayoutRounding="False">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="435*"/>
+            <ColumnDefinition Width="152*"/>
+            <ColumnDefinition Width="24*"/>
+            <ColumnDefinition Width="24*"/>
+            <ColumnDefinition Width="16*"/>
+            <ColumnDefinition Width="99*"/>
+        </Grid.ColumnDefinitions>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="122" VerticalAlignment="Top" Width="800" OpacityMask="Black" Background="#FF570BB7" Grid.ColumnSpan="7">
             <TextBlock HorizontalAlignment="Left" Height="26" Margin="136,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230" FontFamily="Segoe UI Symbol" Foreground="White" FontSize="24"><Run Language="pt-br" Text="Olá"/></TextBlock>
         </Border>
-        <TextBlock HorizontalAlignment="Left" Height="49" Margin="129,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" FontFamily="Segoe UI Symbol" Foreground="White" FontSize="36"><Run Text="Se"/><Run Text="ja Bem"/><Run Language="pt-br" Text="-V"/><Run Text="indo(a)"/></TextBlock>
-        <Image Margin="10,44,680,444" Source="/LogoFastFoodly(1).png" Stretch="Fill"/>
-        <TextBox HorizontalAlignment="Left" Height="24" Margin="556,8,0,0" TextWrapping="Wrap" Text="Cardápio" VerticalAlignment="Top" Width="56" TextChanged="TextBox_TextChanged" Background="#FF570BB7" OpacityMask="#FF570BB7" BorderBrush="#FF570BB7" Foreground="White" FontFamily="Segoe UI Symbol"/>
-        <TextBox HorizontalAlignment="Left" Height="24" Margin="645,8,0,0" TextWrapping="Wrap" Text="Pedido" VerticalAlignment="Top" Width="56" TextChanged="TextBox_TextChanged" Background="#FF570BB7" OpacityMask="#FF570BB7" BorderBrush="#FF570BB7" Foreground="White" FontFamily="Segoe UI Symbol"/>
-        <TextBlock HorizontalAlignment="Left" Height="24" Margin="129,161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82" FontFamily="Segoe UI Symbol" FontSize="16" Foreground="#FF9D9797" FontWeight="Bold"><Run Language="pt-br" Text="Categorias"/></TextBlock>
-        <Rectangle HorizontalAlignment="Left" Height="82" Margin="129,185,0,0" Stroke="Black" VerticalAlignment="Top" Width="82"/>
-        <Rectangle HorizontalAlignment="Left" Height="82" Margin="216,185,0,0" Stroke="Black" VerticalAlignment="Top" Width="82"/>
-        <Rectangle HorizontalAlignment="Left" Height="82" Margin="303,185,0,0" Stroke="Black" VerticalAlignment="Top" Width="82"/>
-        <Rectangle HorizontalAlignment="Left" Height="82" Margin="390,185,0,0" Stroke="Black" VerticalAlignment="Top" Width="82"/>
-        <TextBlock HorizontalAlignment="Left" Height="24" Margin="129,243,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82" FontFamily="Segoe UI Symbol" FontSize="14" Foreground="#FF9D9797" FontWeight="Bold" TextAlignment="Center"><Run Language="pt-br" Text="Aperitivos"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Height="24" Margin="216,243,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82" FontFamily="Segoe UI Symbol" FontSize="14" Foreground="#FF9D9797" FontWeight="Bold" TextAlignment="Center"><Run Language="pt-br" Text="Lanches"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Height="24" Margin="303,243,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82" FontFamily="Segoe UI Symbol" FontSize="14" Foreground="#FF9D9797" FontWeight="Bold" TextAlignment="Center"><Run Language="pt-br" Text="Combos"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Height="24" Margin="390,243,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82" FontFamily="Segoe UI Symbol" FontSize="14" Foreground="#FF9D9797" FontWeight="Bold" TextAlignment="Center"><Run Language="pt-br" Text="Bebidas"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Height="24" Margin="129,298,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82" FontFamily="Segoe UI Symbol" FontSize="16" Foreground="#FF9D9797" FontWeight="Bold"><Run Language="pt-br" Text="Cardápio"/></TextBlock>
-        <Rectangle HorizontalAlignment="Left" Height="156" Margin="129,327,0,0" Stroke="Black" VerticalAlignment="Top" Width="151"/>
-        <Image HorizontalAlignment="Left" Height="80" Margin="129,327,0,0" VerticalAlignment="Top" Width="150"/>
-        <TextBlock HorizontalAlignment="Left" Margin="129,405,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="21" Width="151" FontFamily="Segoe UI Symbol" FontWeight="Bold" FontSize="14"><Run Language="pt-br" Text="   "/><Run Text="X-Salada"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="138,426,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="33" Width="140" FontFamily="Segoe UI Symbol" Foreground="Gray" Text=" Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam" FontSize="8"/>
-        <TextBlock HorizontalAlignment="Left" Margin="158,463,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="21" Width="53" FontFamily="Segoe UI Symbol" Foreground="Gray" FontSize="10" Opacity="0.5"><Run Text=" "/><Run Language="pt-br" Text="a partir de"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="204,460,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="21" Width="74" FontFamily="Segoe UI Symbol" FontSize="14" Foreground="#FF32CF52" FontWeight="Bold"><Run Text="   "/><Run Language="pt-br" Text="R$26,00"/></TextBlock>
-        <Rectangle HorizontalAlignment="Left" Height="156" Margin="288,327,0,0" Stroke="Black" VerticalAlignment="Top" Width="151"/>
-        <Image HorizontalAlignment="Left" Height="80" Margin="288,327,0,0" VerticalAlignment="Top" Width="150"/>
-        <TextBlock HorizontalAlignment="Left" Margin="288,405,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="21" Width="151" FontFamily="Segoe UI Symbol" FontWeight="Bold" FontSize="14"><Run Language="pt-br" Text="   "/><Run Text="X-Salada"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="297,426,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="33" Width="140" FontFamily="Segoe UI Symbol" Foreground="Gray" Text=" Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam" FontSize="8"/>
-        <TextBlock HorizontalAlignment="Left" Margin="317,463,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="21" Width="53" FontFamily="Segoe UI Symbol" Foreground="Gray" FontSize="10" Opacity="0.5"><Run Text=" "/><Run Language="pt-br" Text="a partir de"/></TextBlock>
-        <TextBlock HorizontalAlignment="Center" Margin="0,460,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="21" Width="74" FontFamily="Segoe UI Symbol" FontSize="14" Foreground="#FF32CF52" FontWeight="Bold"><Run Text="   "/><Run Language="pt-br" Text="R$26,00"/></TextBlock>
-        <Rectangle HorizontalAlignment="Left" Height="156" Margin="448,327,0,0" Stroke="Black" VerticalAlignment="Top" Width="151"/>
-        <Image HorizontalAlignment="Left" Height="80" Margin="448,327,0,0" VerticalAlignment="Top" Width="150"/>
-        <TextBlock HorizontalAlignment="Left" Margin="448,405,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="21" Width="151" FontFamily="Segoe UI Symbol" FontWeight="Bold" FontSize="14"><Run Language="pt-br" Text="   "/><Run Text="X-Salada"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="457,426,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="33" Width="140" FontFamily="Segoe UI Symbol" Foreground="Gray" Text=" Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam" FontSize="8"/>
-        <TextBlock HorizontalAlignment="Left" Margin="477,463,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="21" Width="53" FontFamily="Segoe UI Symbol" Foreground="Gray" FontSize="10" Opacity="0.5"><Run Text=" "/><Run Language="pt-br" Text="a partir de"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="523,460,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="21" Width="74" FontFamily="Segoe UI Symbol" FontSize="14" Foreground="#FF32CF52" FontWeight="Bold"><Run Text="   "/><Run Language="pt-br" Text="R$26,00"/></TextBlock>
-        <Rectangle HorizontalAlignment="Left" Height="156" Margin="607,327,0,0" Stroke="Black" VerticalAlignment="Top" Width="151"/>
-        <Image HorizontalAlignment="Left" Height="80" Margin="607,327,0,0" VerticalAlignment="Top" Width="150"/>
-        <TextBlock HorizontalAlignment="Left" Margin="607,405,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="21" Width="151" FontFamily="Segoe UI Symbol" FontWeight="Bold" FontSize="14"><Run Language="pt-br" Text="   "/><Run Text="X-Salada"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="616,426,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="33" Width="140" FontFamily="Segoe UI Symbol" Foreground="Gray" Text=" Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam" FontSize="8"/>
-        <TextBlock HorizontalAlignment="Left" Margin="636,463,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="21" Width="53" FontFamily="Segoe UI Symbol" Foreground="Gray" FontSize="10" Opacity="0.5"><Run Text=" "/><Run Language="pt-br" Text="a partir de"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="682,460,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="21" Width="74" FontFamily="Segoe UI Symbol" FontSize="14" Foreground="#FF32CF52" FontWeight="Bold"><Run Text="   "/><Run Language="pt-br" Text="R$26,00"/></TextBlock>
-        <Rectangle HorizontalAlignment="Left" Height="156" Margin="129,497,0,0" Stroke="Black" VerticalAlignment="Top" Width="151"/>
-        <Image HorizontalAlignment="Left" Height="80" Margin="129,497,0,0" VerticalAlignment="Top" Width="150"/>
-        <TextBlock HorizontalAlignment="Left" Margin="129,575,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="21" Width="151" FontFamily="Segoe UI Symbol" FontWeight="Bold" FontSize="14"><Run Language="pt-br" Text="   "/><Run Text="X-Salada"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="138,596,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="33" Width="140" FontFamily="Segoe UI Symbol" Foreground="Gray" Text=" Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam" FontSize="8"/>
-        <TextBlock HorizontalAlignment="Left" Margin="158,633,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="21" Width="53" FontFamily="Segoe UI Symbol" Foreground="Gray" FontSize="10" Opacity="0.5"><Run Text=" "/><Run Language="pt-br" Text="a partir de"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="204,630,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="21" Width="74" FontFamily="Segoe UI Symbol" FontSize="14" Foreground="#FF32CF52" FontWeight="Bold"><Run Text="   "/><Run Language="pt-br" Text="R$26,00"/></TextBlock>
-        <Rectangle HorizontalAlignment="Left" Height="156" Margin="288,497,0,0" Stroke="Black" VerticalAlignment="Top" Width="151"/>
-        <Image HorizontalAlignment="Left" Height="80" Margin="288,497,0,0" VerticalAlignment="Top" Width="150"/>
-        <TextBlock HorizontalAlignment="Left" Margin="288,575,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="21" Width="151" FontFamily="Segoe UI Symbol" FontWeight="Bold" FontSize="14"><Run Language="pt-br" Text="   "/><Run Text="X-Salada"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="297,596,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="33" Width="140" FontFamily="Segoe UI Symbol" Foreground="Gray" Text=" Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam" FontSize="8"/>
-        <TextBlock HorizontalAlignment="Left" Margin="317,633,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="21" Width="53" FontFamily="Segoe UI Symbol" Foreground="Gray" FontSize="10" Opacity="0.5"><Run Text=" "/><Run Language="pt-br" Text="a partir de"/></TextBlock>
-        <TextBlock HorizontalAlignment="Center" Margin="0,630,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="21" Width="74" FontFamily="Segoe UI Symbol" FontSize="14" Foreground="#FF32CF52" FontWeight="Bold"><Run Text="   "/><Run Language="pt-br" Text="R$26,00"/></TextBlock>
-        <Rectangle HorizontalAlignment="Left" Height="156" Margin="448,497,0,0" Stroke="Black" VerticalAlignment="Top" Width="151"/>
-        <Image HorizontalAlignment="Left" Height="80" Margin="448,497,0,0" VerticalAlignment="Top" Width="150"/>
-        <TextBlock HorizontalAlignment="Left" Margin="448,575,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="21" Width="151" FontFamily="Segoe UI Symbol" FontWeight="Bold" FontSize="14"><Run Language="pt-br" Text="   "/><Run Text="X-Salada"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="457,596,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="33" Width="140" FontFamily="Segoe UI Symbol" Foreground="Gray" Text=" Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam" FontSize="8"/>
-        <TextBlock HorizontalAlignment="Left" Margin="477,633,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="21" Width="53" FontFamily="Segoe UI Symbol" Foreground="Gray" FontSize="10" Opacity="0.5"><Run Text=" "/><Run Language="pt-br" Text="a partir de"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="523,630,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="21" Width="74" FontFamily="Segoe UI Symbol" FontSize="14" Foreground="#FF32CF52" FontWeight="Bold"><Run Text="   "/><Run Language="pt-br" Text="R$26,00"/></TextBlock>
-        <Rectangle HorizontalAlignment="Left" Height="156" Margin="607,497,0,0" Stroke="Black" VerticalAlignment="Top" Width="151"/>
-        <Image HorizontalAlignment="Left" Height="80" Margin="607,497,0,0" VerticalAlignment="Top" Width="150"/>
-        <TextBlock HorizontalAlignment="Left" Margin="607,575,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="21" Width="151" FontFamily="Segoe UI Symbol" FontWeight="Bold" FontSize="14"><Run Language="pt-br" Text="   "/><Run Text="X-Salada"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="616,596,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="33" Width="140" FontFamily="Segoe UI Symbol" Foreground="Gray" Text=" Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam" FontSize="8"/>
-        <TextBlock HorizontalAlignment="Left" Margin="636,633,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="21" Width="53" FontFamily="Segoe UI Symbol" Foreground="Gray" FontSize="10" Opacity="0.5"><Run Text=" "/><Run Language="pt-br" Text="a partir de"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="682,630,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="21" Width="74" FontFamily="Segoe UI Symbol" FontSize="14" Foreground="#FF32CF52" FontWeight="Bold"><Run Text="   "/><Run Language="pt-br" Text="R$26,00"/></TextBlock>
-
+        <TextBlock Height="49" Margin="79,59,54,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Segoe UI Symbol" Foreground="White" FontSize="36" Grid.Column="1"><Run Text="Se"/><Run Text="ja Bem"/><Run Language="pt-br" Text="-V"/><Run Text="indo(a)"/></TextBlock>
+        <Image Margin="10,0,0,429" Source="/LogoFastFoodly(1).png" Stretch="Fill" Grid.IsSharedSizeScope="True" HorizontalAlignment="Left" Width="110" Grid.ColumnSpan="2" Height="71" VerticalAlignment="Bottom"/>
+        <TextBlock HorizontalAlignment="Left" Height="24" Margin="79,161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82" FontFamily="Segoe UI Symbol" FontSize="16" Foreground="#FF9D9797" FontWeight="Bold" Grid.Column="1"><Run Language="pt-br" Text="Categorias"/></TextBlock>
+        <Frame x:Name="MainFrame"/>
+        <Rectangle HorizontalAlignment="Left" Height="82" Margin="79,185,0,0" Stroke="Black" VerticalAlignment="Top" Width="82" Grid.Column="1" MouseLeftButtonDown="Categoria" Fill="White" Cursor="Hand">
+            <Rectangle.DataContext>
+                <local:Categoria/>
+            </Rectangle.DataContext>
+        </Rectangle>
+        <Rectangle HorizontalAlignment="Left" Height="82" Margin="166,185,0,0" Stroke="Black" VerticalAlignment="Top" Width="82" Grid.Column="1"/>
+        <Rectangle HorizontalAlignment="Left" Height="82" Margin="253,185,0,0" Stroke="Black" VerticalAlignment="Top" Width="82" Grid.Column="1"/>
+        <Rectangle HorizontalAlignment="Left" Height="82" Margin="340,185,0,0" Stroke="Black" VerticalAlignment="Top" Width="82" Grid.Column="1"/>
+        <TextBlock HorizontalAlignment="Left" Height="24" Margin="79,243,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82" FontFamily="Segoe UI Symbol" FontSize="14" Foreground="#FF9D9797" FontWeight="Bold" TextAlignment="Center" Grid.Column="1"><Run Language="pt-br" Text="Combos"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="24" Margin="166,243,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82" FontFamily="Segoe UI Symbol" FontSize="14" Foreground="#FF9D9797" FontWeight="Bold" TextAlignment="Center" Grid.Column="1"><Run Language="pt-br" Text="Lanches"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="24" Margin="253,243,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82" FontFamily="Segoe UI Symbol" FontSize="14" Foreground="#FF9D9797" FontWeight="Bold" TextAlignment="Center" Grid.Column="1"><Run Language="pt-br" Text="Aperitivos"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="24" Margin="340,243,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82" FontFamily="Segoe UI Symbol" FontSize="14" Foreground="#FF9D9797" FontWeight="Bold" TextAlignment="Center" Grid.Column="1"><Run Language="pt-br" Text="Bebidas"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="24" Margin="79,298,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82" FontFamily="Segoe UI Symbol" FontSize="16" Foreground="#FF9D9797" FontWeight="Bold" Grid.Column="1"><Run Language="pt-br" Text="Cardápio"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="24" Margin="79,298,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82" FontFamily="Segoe UI Symbol" FontSize="16" Foreground="#FF9D9797" FontWeight="Bold" Grid.Column="1"><Run Language="pt-br" Text="Cardápio"/></TextBlock>
+        <Rectangle HorizontalAlignment="Left" Height="156" Margin="79,327,0,0" Stroke="Black" VerticalAlignment="Top" Width="151" Grid.Column="1"/>
+        <Image HorizontalAlignment="Left" Height="84" Margin="96,327,0,0" VerticalAlignment="Top" Width="118" Grid.Column="1" Source="/closeup-shot-burger-with-bacon-cheese-red-coffee-mug.jpg"/>
+        <TextBlock HorizontalAlignment="Left" Margin="79,405,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="21" Width="151" FontFamily="Segoe UI Symbol" FontWeight="Bold" FontSize="14" Grid.Column="1"><Run Language="pt-br" Text="   "/><Run Text="X-Salada"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="88,426,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="33" Width="140" FontFamily="Segoe UI Symbol" Foreground="Gray" Text=" Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam" FontSize="8" Grid.Column="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="108,463,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="21" Width="53" FontFamily="Segoe UI Symbol" Foreground="Gray" FontSize="10" Opacity="0.5" Grid.Column="1"><Run Text=" "/><Run Language="pt-br" Text="a partir de"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="154,460,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="21" Width="74" FontFamily="Segoe UI Symbol" FontSize="14" Foreground="#FF32CF52" FontWeight="Bold" Grid.Column="1"><Run Text="   "/><Run Language="pt-br" Text="R$26,00"/></TextBlock>
+        <Rectangle HorizontalAlignment="Left" Height="156" Margin="238,327,0,0" Stroke="Black" VerticalAlignment="Top" Width="151" Grid.Column="1"/>
+        <Image HorizontalAlignment="Left" Height="80" Margin="238,327,0,0" VerticalAlignment="Top" Width="150" Grid.Column="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="238,405,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="21" Width="151" FontFamily="Segoe UI Symbol" FontWeight="Bold" FontSize="14" Grid.Column="1"><Run Language="pt-br" Text="   "/><Run Text="X-Salada"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="247,426,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="33" Width="140" FontFamily="Segoe UI Symbol" Foreground="Gray" Text=" Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam" FontSize="8" Grid.Column="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="267,463,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="21" Width="53" FontFamily="Segoe UI Symbol" Foreground="Gray" FontSize="10" Opacity="0.5" Grid.Column="1"><Run Text=" "/><Run Language="pt-br" Text="a partir de"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="313,460,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="21" Width="74" FontFamily="Segoe UI Symbol" FontSize="14" Foreground="#FF32CF52" FontWeight="Bold" Grid.Column="1"><Run Text="   "/><Run Language="pt-br" Text="R$26,00"/></TextBlock>
+        <Rectangle HorizontalAlignment="Left" Height="156" Margin="398,327,0,0" Stroke="Black" VerticalAlignment="Top" Width="151" Grid.ColumnSpan="2" Grid.Column="1"/>
+        <Image HorizontalAlignment="Left" Height="80" Margin="398,327,0,0" VerticalAlignment="Top" Width="150" Grid.ColumnSpan="2" Grid.Column="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="398,405,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="21" Width="151" FontFamily="Segoe UI Symbol" FontWeight="Bold" FontSize="14" Grid.ColumnSpan="2" Grid.Column="1"><Run Language="pt-br" Text="   "/><Run Text="X-Salada"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="407,426,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="33" Width="140" FontFamily="Segoe UI Symbol" Foreground="Gray" Text=" Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam" FontSize="8" Grid.ColumnSpan="2" Grid.Column="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="427,463,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="21" Width="53" FontFamily="Segoe UI Symbol" Foreground="Gray" FontSize="10" Opacity="0.5" Grid.ColumnSpan="2" Grid.Column="1"><Run Text=" "/><Run Language="pt-br" Text="a partir de"/></TextBlock>
+        <TextBlock Margin="39,460,0,0" TextWrapping="Wrap" FontFamily="Segoe UI Symbol" FontSize="14" Foreground="#FF32CF52" FontWeight="Bold" HorizontalAlignment="Left" Width="74" Height="21" VerticalAlignment="Top" Grid.Column="2"><Run Text="   "/><Run Language="pt-br" Text="R$26,00"/></TextBlock>
+        <Rectangle HorizontalAlignment="Left" Height="156" Margin="122,327,0,0" Stroke="Black" VerticalAlignment="Top" Width="151" Grid.ColumnSpan="5" Grid.Column="2"/>
+        <Image Margin="122,327,43,145" Grid.ColumnSpan="5" Grid.Column="2"/>
+        <TextBlock Margin="21,460,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="21" FontFamily="Segoe UI Symbol" FontSize="14" Foreground="#FF32CF52" FontWeight="Bold" Grid.Column="4" Grid.ColumnSpan="3" HorizontalAlignment="Left" Width="74"><Run Text="   "/><Run Language="pt-br" Text="R$26,00"/></TextBlock>
+        <Rectangle HorizontalAlignment="Left" Height="156" Margin="79,497,0,0" Stroke="Black" VerticalAlignment="Top" Width="151" Grid.Column="1"/>
+        <Image HorizontalAlignment="Left" Height="80" Margin="79,497,0,0" VerticalAlignment="Top" Width="150" Grid.Column="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="79,575,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="21" Width="151" FontFamily="Segoe UI Symbol" FontWeight="Bold" FontSize="14" Grid.Column="1"><Run Language="pt-br" Text="   "/><Run Text="X-Salada"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="88,596,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="33" Width="140" FontFamily="Segoe UI Symbol" Foreground="Gray" Text=" Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam" FontSize="8" Grid.Column="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="108,633,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="21" Width="53" FontFamily="Segoe UI Symbol" Foreground="Gray" FontSize="10" Opacity="0.5" Grid.Column="1"><Run Text=" "/><Run Language="pt-br" Text="a partir de"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="154,630,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="21" Width="74" FontFamily="Segoe UI Symbol" FontSize="14" Foreground="#FF32CF52" FontWeight="Bold" Grid.Column="1"><Run Text="   "/><Run Language="pt-br" Text="R$26,00"/></TextBlock>
+        <Rectangle HorizontalAlignment="Left" Height="156" Margin="238,497,0,0" Stroke="Black" VerticalAlignment="Top" Width="151" Grid.Column="1"/>
+        <Image HorizontalAlignment="Left" Height="80" Margin="238,497,0,0" VerticalAlignment="Top" Width="150" Grid.Column="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="238,575,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="21" Width="151" FontFamily="Segoe UI Symbol" FontWeight="Bold" FontSize="14" Grid.Column="1"><Run Language="pt-br" Text="   "/><Run Text="X-Salada"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="247,596,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="33" Width="140" FontFamily="Segoe UI Symbol" Foreground="Gray" Text=" Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam" FontSize="8" Grid.Column="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="267,633,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="21" Width="53" FontFamily="Segoe UI Symbol" Foreground="Gray" FontSize="10" Opacity="0.5" Grid.Column="1"><Run Text=" "/><Run Language="pt-br" Text="a partir de"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="313,630,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="21" Width="74" FontFamily="Segoe UI Symbol" FontSize="14" Foreground="#FF32CF52" FontWeight="Bold" Grid.Column="1"><Run Text="   "/><Run Language="pt-br" Text="R$26,00"/></TextBlock>
+        <Rectangle HorizontalAlignment="Left" Height="156" Margin="398,497,0,0" Stroke="Black" VerticalAlignment="Top" Width="151" Grid.ColumnSpan="2" Grid.Column="1"/>
+        <Image HorizontalAlignment="Left" Height="80" Margin="398,497,0,0" VerticalAlignment="Top" Width="150" Grid.ColumnSpan="2" Grid.Column="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="398,575,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="21" Width="151" FontFamily="Segoe UI Symbol" FontWeight="Bold" FontSize="14" Grid.ColumnSpan="2" Grid.Column="1"><Run Language="pt-br" Text="   "/><Run Text="X-Salada"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="407,596,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="33" Width="140" FontFamily="Segoe UI Symbol" Foreground="Gray" Text=" Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam" FontSize="8" Grid.ColumnSpan="2" Grid.Column="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="427,633,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="21" Width="53" FontFamily="Segoe UI Symbol" Foreground="Gray" FontSize="10" Opacity="0.5" Grid.ColumnSpan="2" Grid.Column="1"><Run Text=" "/><Run Language="pt-br" Text="a partir de"/></TextBlock>
+        <TextBlock HorizontalAlignment="Center" Margin="0,630,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="21" Width="74" FontFamily="Segoe UI Symbol" FontSize="14" Foreground="#FF32CF52" FontWeight="Bold" Grid.Column="2"><Run Text="   "/><Run Language="pt-br" Text="R$26,00"/></TextBlock>
+        <Rectangle HorizontalAlignment="Left" Height="156" Margin="122,497,0,0" Stroke="Black" VerticalAlignment="Top" Width="151" Grid.ColumnSpan="5" Grid.Column="2"/>
+        <Image HorizontalAlignment="Left" Height="80" Margin="122,497,0,0" VerticalAlignment="Top" Width="150" Grid.ColumnSpan="5" Grid.Column="2"/>
+        <TextBlock HorizontalAlignment="Left" Margin="122,575,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="21" Width="151" FontFamily="Segoe UI Symbol" FontWeight="Bold" FontSize="14" Grid.ColumnSpan="5" Grid.Column="2"><Run Language="pt-br" Text="   "/><Run Text="X-Salada"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="131,596,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="33" Width="140" FontFamily="Segoe UI Symbol" Foreground="Gray" Text=" Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam" FontSize="8" Grid.ColumnSpan="5" Grid.Column="2"/>
+        <TextBlock HorizontalAlignment="Left" Margin="151,633,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="21" Width="53" FontFamily="Segoe UI Symbol" Foreground="Gray" FontSize="10" Opacity="0.5" Grid.ColumnSpan="4" Grid.Column="2"><Run Text=" "/><Run Language="pt-br" Text="a partir de"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="21,630,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="21" Width="74" FontFamily="Segoe UI Symbol" FontSize="14" Foreground="#FF32CF52" FontWeight="Bold" Grid.Column="4" Grid.ColumnSpan="3"><Run Text="   "/><Run Language="pt-br" Text="R$26,00"/></TextBlock>
+        <Rectangle HorizontalAlignment="Left" Height="82" Margin="428,185,0,0" Stroke="Black" VerticalAlignment="Top" Width="82" Grid.ColumnSpan="2" Grid.Column="1"/>
+        <TextBlock HorizontalAlignment="Left" Height="24" Margin="428,243,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82" FontFamily="Segoe UI Symbol" FontSize="14" Foreground="#FF9D9797" FontWeight="Bold" TextAlignment="Center" Grid.ColumnSpan="2" Grid.Column="1"><Run Language="pt-br" Text="Sobremesas"/></TextBlock>
+        <TextBox x:Name="txtSearch" Width="346" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Column="1" Height="20" Text="Qual comida você está procurando?" Foreground="Gray" Margin="144,113,0,0" Grid.ColumnSpan="2"/>
+        <Button Content="Buscar" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,113,0,0" Grid.Column="2"/>
+        <Image Grid.Column="1" HorizontalAlignment="Left" Height="54" Margin="90,190,0,0" VerticalAlignment="Top" Width="58" Source="/Design sem nome.png">
+            <Image.OpacityMask>
+                <ImageBrush ImageSource="/Design sem nome.png"/>
+            </Image.OpacityMask>
+        </Image>
+        <Image Grid.Column="2" HorizontalAlignment="Right" Height="54" Margin="0,190,84,0" VerticalAlignment="Top" Width="58" Source="/Design sem nome (1).png"/>
+        <Image Grid.Column="1" HorizontalAlignment="Left" Height="54" Margin="354,190,0,0" VerticalAlignment="Top" Width="58" Source="/Design sem nome (2).png"/>
+        <Image Grid.Column="1" HorizontalAlignment="Left" Height="54" Margin="179,190,0,0" VerticalAlignment="Top" Width="58" Source="/Design sem nome (3).png">
+            <Image.OpacityMask>
+                <ImageBrush ImageSource="/Design sem nome.png"/>
+            </Image.OpacityMask>
+        </Image>
+        <Image Grid.Column="1" HorizontalAlignment="Left" Height="47" Margin="270,194,0,0" VerticalAlignment="Top" Width="52" Source="/Design sem nome (4).png">
+            <Image.OpacityMask>
+                <ImageBrush ImageSource="/Design sem nome.png"/>
+            </Image.OpacityMask>
+        </Image>
+        <Image HorizontalAlignment="Left" Height="84" Margin="254,327,0,0" VerticalAlignment="Top" Width="118" Grid.Column="1" Source="/closeup-shot-burger-with-bacon-cheese-red-coffee-mug.jpg"/>
+        <Image HorizontalAlignment="Left" Height="84" Margin="412,327,0,0" VerticalAlignment="Top" Width="118" Grid.Column="1" Source="/closeup-shot-burger-with-bacon-cheese-red-coffee-mug.jpg" Grid.ColumnSpan="2"/>
+        <Image HorizontalAlignment="Left" Height="84" Margin="138,327,0,0" VerticalAlignment="Top" Width="118" Grid.Column="2" Source="/closeup-shot-burger-with-bacon-cheese-red-coffee-mug.jpg" Grid.ColumnSpan="5"/>
+        <Image HorizontalAlignment="Left" Height="84" Margin="96,498,0,0" VerticalAlignment="Top" Width="118" Grid.Column="1" Source="/closeup-shot-burger-with-bacon-cheese-red-coffee-mug.jpg"/>
+        <Image HorizontalAlignment="Left" Height="84" Margin="254,498,0,0" VerticalAlignment="Top" Width="118" Grid.Column="1" Source="/closeup-shot-burger-with-bacon-cheese-red-coffee-mug.jpg"/>
+        <Image HorizontalAlignment="Left" Height="84" Margin="412,498,0,0" VerticalAlignment="Top" Width="118" Grid.Column="1" Source="/closeup-shot-burger-with-bacon-cheese-red-coffee-mug.jpg" Grid.ColumnSpan="2"/>
+        <Image HorizontalAlignment="Left" Height="84" Margin="138,498,0,0" VerticalAlignment="Top" Width="118" Grid.Column="2" Source="/closeup-shot-burger-with-bacon-cheese-red-coffee-mug.jpg" Grid.ColumnSpan="5"/>
+        <TextBlock HorizontalAlignment="Left" Margin="122,406,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="21" Width="151" FontFamily="Segoe UI Symbol" FontWeight="Bold" FontSize="14" Grid.ColumnSpan="5" Grid.Column="2"><Run Language="pt-br" Text="   "/><Run Text="X-Salada"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="131,427,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="33" Width="140" FontFamily="Segoe UI Symbol" Foreground="Gray" Text=" Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam" FontSize="8" Grid.ColumnSpan="5" Grid.Column="2"/>
+        <TextBlock HorizontalAlignment="Left" Margin="151,464,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="21" Width="53" FontFamily="Segoe UI Symbol" Foreground="Gray" FontSize="10" Opacity="0.5" Grid.ColumnSpan="4" Grid.Column="2"><Run Text=" "/><Run Language="pt-br" Text="a partir de"/></TextBlock>
+        <TextBlock Height="32" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Segoe UI Symbol" Foreground="White" Grid.Column="2" Grid.ColumnSpan="5" FontSize="8" Margin="138,10,1,0"><Run Text="Rua Saturnino Brito, 573 - Cidade Universitária "/><LineBreak/><Run Text="(19) 3521-7000"/><LineBreak/><Run Text="@fastfoodly"/></TextBlock>
+        <ScrollViewer Grid.Column="6" Margin="89,122,0,1" HorizontalAlignment="Left" Width="10"/>
     </Grid>
 </Window>
