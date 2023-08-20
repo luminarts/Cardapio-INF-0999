@@ -3,8 +3,6 @@ using System.Collections.Generic;
 
 namespace FastFoodly.Model
 {
-    //Vai usar toolkit mvvm?
-    //A classe ObservableObject, fornecida pelo Community Toolkit MVVM, permite a notificação de alterações de propriedades.
     public class Produto
     {
         private int? productId;
@@ -12,6 +10,7 @@ namespace FastFoodly.Model
         private decimal? price;
         private string? description;
         private List<string>? ingredients;
+        private string? category;
 
         //Propriedade productId, que representa o id do produto.
         public int? ProductId
@@ -46,6 +45,12 @@ namespace FastFoodly.Model
         {
             get { return ingredients; }
             set { ingredients = value; }
+        }
+
+        public string? Category
+        {
+            get { return category; }
+            set { category = value; }
         }
         // public Produto(int id, string productName, decimal productPrice, string productDescription, List<string> productIngredients)
         public Produto()
