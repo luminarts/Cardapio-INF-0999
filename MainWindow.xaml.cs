@@ -27,7 +27,7 @@ namespace Fast_Foodly
             string sqlConnectionString = ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
             var database = new FastFoodly.DatabaseService(sqlConnectionString);
             var menu = database.ListAllMenu();
-            var menuByCategory = database.ListMenuCategory();
+            var menuByCategory = database.ListMenuCategory("Lanches");
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
