@@ -10,12 +10,12 @@ namespace FastFoodly
     public class DatabaseService
     {
         private string _connectionString;
-        
+
         public DatabaseService(string connectionString)
         {
             _connectionString = connectionString;
         }
-        
+
         public SqlConnection OpenConnection()
         {
             SqlConnection connection = new SqlConnection(_connectionString);
@@ -36,9 +36,10 @@ namespace FastFoodly
                 {
                     while (reader.Read())
                     {
-                        // Cria o objeto Produto e salva as variaveis name, price e description
+                        // Cria o objeto Produto e salva suas variaveis
                         var produto = new Produto()
                         {
+                            ProductId = (int)reader.GetDecimal(0),
                             Name = reader.GetString(1),
                             Price = reader.GetDecimal(2),
                             Description = reader.GetString(3),
@@ -46,17 +47,9 @@ namespace FastFoodly
                             Category = reader.GetString(5)
                         };
 
-                        //salva valor do Id do produto
-                        object value = reader.GetValue(0);
-                        if (value is decimal decimalValue)
-                        {
-                            int numericValue = (int)decimalValue; // Convert decimal to int
-                            produto.ProductId = numericValue;
-                        }
-
                         // salva elementos na lista de ingredientes
                         var rawList = reader.GetString(4).Split(',');
-                        for(int i = 0; i < rawList.Length; i++)
+                        for (int i = 0; i < rawList.Length; i++)
                         {
                             produto.Ingredients?.Add(rawList[i]);
                         }
@@ -84,23 +77,16 @@ namespace FastFoodly
                 {
                     while (reader.Read())
                     {
-                        // Cria o objeto Produto e salva as variaveis name, price, description e category
+                        // Cria o objeto Produto e salva suas variaveis
                         var produto = new Produto()
                         {
+                            ProductId = (int)reader.GetDecimal(0),
                             Name = reader.GetString(1),
                             Price = reader.GetDecimal(2),
                             Description = reader.GetString(3),
                             Ingredients = new List<string>(),
                             Category = reader.GetString(5)
                         };
-
-                        //salva valor do Id do produto
-                        object value = reader.GetValue(0);
-                        if (value is decimal decimalValue)
-                        {
-                            int numericValue = (int)decimalValue; // Convert decimal to int
-                            produto.ProductId = numericValue;
-                        }
 
                         // salva elementos na lista de ingredientes
                         var rawList = reader.GetString(4).Split(',');
@@ -132,23 +118,16 @@ namespace FastFoodly
                 {
                     while (reader.Read())
                     {
-                        // Cria o objeto Produto e salva as variaveis name, price, description e category
+                        // Cria o objeto Produto e salva suas variaveis
                         var produto = new Produto()
                         {
+                            ProductId = (int)reader.GetDecimal(0),
                             Name = reader.GetString(1),
                             Price = reader.GetDecimal(2),
                             Description = reader.GetString(3),
                             Ingredients = new List<string>(),
                             Category = reader.GetString(5)
                         };
-
-                        //salva valor do Id do produto
-                        object value = reader.GetValue(0);
-                        if (value is decimal decimalValue)
-                        {
-                            int numericValue = (int)decimalValue; // Convert decimal to int
-                            produto.ProductId = numericValue;
-                        }
 
                         // salva elementos na lista de ingredientes
                         var rawList = reader.GetString(4).Split(',');
@@ -179,29 +158,27 @@ namespace FastFoodly
                 SqlDataReader reader = command.ExecuteReader();
                 if (reader.HasRows)
                 {
-                    while (reader.Read())
+                    //Salva as variaveis name, price, description e category
+                    menuBySearch.ProductId = (int)reader.GetDecimal(0);
+                    menuBySearch.Name = reader.GetString(1);
+                    menuBySearch.Price = reader.GetDecimal(2);
+                    menuBySearch.Description = reader.GetString(3);
+                    menuBySearch.Ingredients = new List<string>();
+                    menuBySearch.Category = reader.GetString(5);
+
+                    //salva valor do Id do produto
+                    object value = reader.GetValue(0);
+                    if (value is decimal decimalValue)
                     {
-                        //Salva as variaveis name, price, description e category
-                        menuBySearch.Name = reader.GetString(1);
-                        menuBySearch.Price = reader.GetDecimal(2);
-                        menuBySearch.Description = reader.GetString(3);
-                        menuBySearch.Ingredients = new List<string>();
-                        menuBySearch.Category = reader.GetString(5);
+                        int numericValue = (int)decimalValue; // Convert decimal to int
+                        menuBySearch.ProductId = numericValue;
+                    }
 
-                        //salva valor do Id do produto
-                        object value = reader.GetValue(0);
-                        if (value is decimal decimalValue)
-                        {
-                            int numericValue = (int)decimalValue; // Convert decimal to int
-                            menuBySearch.ProductId = numericValue;
-                        }
-
-                        // salva elementos na lista de ingredientes
-                        var rawList = reader.GetString(4).Split(',');
-                        for (int i = 0; i < rawList.Length; i++)
-                        {
-                            menuBySearch.Ingredients?.Add(rawList[i]);
-                        }
+                    // salva elementos na lista de ingredientes
+                    var rawList = reader.GetString(4).Split(',');
+                    for (int i = 0; i < rawList.Length; i++)
+                    {
+                        menuBySearch.Ingredients?.Add(rawList[i]);
                     }
                 }
                 return menuBySearch;

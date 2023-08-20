@@ -63,28 +63,6 @@ namespace FastFoodly
 							Quantity = (int)reader.GetDecimal(4),
 							Observations = reader.GetString(5)
 						};
-
-						//salva valor do Id do cartItem
-						// object value = reader.GetValue(0);
-						// if (value is decimal decimalValue)
-						// {
-						// 	int numericValue = (int)decimalValue; // Convert decimal to int
-						// 	cartItem.ItemId = numericValue;
-						// }
-
-						// value = reader.GetValue(1);
-						// if (value is decimal decimalValue)
-						// {
-						// 	int numericValue = (int)decimalValue; // Convert decimal to int
-						// 	cartItem.ProductId = numericValue;
-						// }
-
-						// salva elementos na lista de observações
-						// var rawList = reader.GetString(5).Split(',');
-						// for (int i = 0; i < rawList.Length; i++)
-						// {
-						// 	cartItem.Observations?.Add(rawList[i]);
-						// }
 						cart.Add(cartItem);
 					}
 				}
@@ -94,6 +72,42 @@ namespace FastFoodly
 			{
 				Console.WriteLine($"Erro ao comunicar com banco. \n\nMessage: {ex.Message} \n\nTarget Site: {ex.TargetSite} \n\nStack Trace: {ex.StackTrace}");
 				throw;
+			}
+		}
+
+		public string DeleteItem(int itemId)
+		{
+			try
+			{
+				var conn = OpenConnection();
+				List<CartItem> cart = new List<CartItem>();
+				SqlCommand command = new SqlCommand($"DELETE FROM carrinho WHERE idItem={itemId}", conn);
+
+				command.ExecuteReader();
+				return "Success";
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine($"Erro ao comunicar com banco. \n\nMessage: {ex.Message} \n\nTarget Site: {ex.TargetSite} \n\nStack Trace: {ex.StackTrace}");
+				return $"Failed to delete item {itemId} from cart";
+			}
+		}
+
+		public string DeleteAllItems()
+		{
+			try
+			{
+				var conn = OpenConnection();
+				List<CartItem> cart = new List<CartItem>();
+				SqlCommand command = new SqlCommand("DELETE FROM carrinho", conn);
+
+				command.ExecuteReader();
+				return "Success";
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine($"Erro ao comunicar com banco. \n\nMessage: {ex.Message} \n\nTarget Site: {ex.TargetSite} \n\nStack Trace: {ex.StackTrace}");
+				return $"Failed to delete item {itemId} from cart";
 			}
 		}
 	}
