@@ -55,12 +55,12 @@ namespace Fast_Foodly
 
             //Deleta um item especifico do carrinho
             cart.DeleteItem(cartItems[0].ItemId);
-            //Lista todos os itens do carrinho
+            //Lista todos os itens do carrinho - deve retornar lista sem o item deletado
             cartItems = cart.ListAllItems();
 
             //Deleta todos os itens do carrihno
             cart.DeleteAllItems();
-            //Lista todos os itens do carrinho
+            //Lista todos os itens do carrinho - deve retornar lista vazia
             cartItems = cart.ListAllItems();
 
         }

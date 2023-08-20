@@ -107,7 +107,7 @@ namespace FastFoodly
 			catch (Exception ex)
 			{
 				Console.WriteLine($"Erro ao comunicar com banco. \n\nMessage: {ex.Message} \n\nTarget Site: {ex.TargetSite} \n\nStack Trace: {ex.StackTrace}");
-				return $"Failed to delete item {itemId} from cart";
+				return "Failed to delete items from cart";
 			}
 		}
 	}

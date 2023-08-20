@@ -5,7 +5,7 @@ namespace FastFoodly.Model
 {
     public class CartItem
     {
-		private int? itemId;
+		private int itemId;
         private int? productId;
         private string? name;
         private decimal? price;
@@ -13,7 +13,7 @@ namespace FastFoodly.Model
         private string? observations;
 
         //Propriedade itemId, que representa o id do item do carrinho.
-        public int? ItemId
+        public int ItemId
         {
             get { return itemId; }
             set { itemId = value; }
