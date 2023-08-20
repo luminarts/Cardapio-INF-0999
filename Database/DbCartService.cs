@@ -28,13 +28,13 @@ namespace FastFoodly
 			try
 			{
 				var conn = OpenConnection();
-				SqlCommand command = new SqlCommand($"INSERT INTO carrinho VALUES({item.ProductId}, {item.Name}, {item.Price}, {item.Quantity}, {item.Observations})", conn);
+				SqlCommand command = new SqlCommand($"INSERT INTO carrinho VALUES({item.ProductId}, '{item.Name}', {item.Price}, {item.Quantity}, '{item.Observations}')", conn);
 
 				SqlDataReader reader = command.ExecuteReader();
-				if (reader = 1)
-				{
-					return "success";
-				}
+				// if (reader = 1)
+				// {
+				// 	return "success";
+				// }
 				return "Failed to add product to cart";
 			}
 			catch (Exception ex)

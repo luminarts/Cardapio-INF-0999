@@ -182,29 +182,29 @@ namespace FastFoodly
                     while (reader.Read())
                     {
                         //Salva as variaveis name, price, description e category
-                        produto.Name = reader.GetString(1);
-                        produto.Price = reader.GetDecimal(2);
-                        produto.Description = reader.GetString(3);
-                        produto.Ingredients = new List<string>();
-                        produto.Category = reader.GetString(5);
+                        menuBySearch.Name = reader.GetString(1);
+                        menuBySearch.Price = reader.GetDecimal(2);
+                        menuBySearch.Description = reader.GetString(3);
+                        menuBySearch.Ingredients = new List<string>();
+                        menuBySearch.Category = reader.GetString(5);
 
                         //salva valor do Id do produto
                         object value = reader.GetValue(0);
                         if (value is decimal decimalValue)
                         {
                             int numericValue = (int)decimalValue; // Convert decimal to int
-                            produto.ProductId = numericValue;
+                            menuBySearch.ProductId = numericValue;
                         }
 
                         // salva elementos na lista de ingredientes
                         var rawList = reader.GetString(4).Split(',');
                         for (int i = 0; i < rawList.Length; i++)
                         {
-                            produto.Ingredients?.Add(rawList[i]);
+                            menuBySearch.Ingredients?.Add(rawList[i]);
                         }
                     }
                 }
-                return produto;
+                return menuBySearch;
             }
             catch (Exception ex)
             {

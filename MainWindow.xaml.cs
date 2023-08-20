@@ -27,14 +27,22 @@ namespace Fast_Foodly
         {
             InitializeComponent();
             string sqlConnectionString = ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
-            var database = new FastFoodly.DatabaseService(sqlConnectionString);
-            var menu = database.ListAllMenu();
-            var menuByCategory = database.ListByCategory("Lanches");
-            var menuBySearch = database.ListBySearch("Hamburguer");
-            var cart = new DbCartService();
+            
+            //Manipulação da tabela do cardapio
+            var database = new DatabaseService(sqlConnectionString);
+            //Lista todos os itens do menu
+            List<Produto> menu = database.ListAllMenu();
+            //Lista de item de uma determinada categoria
+            List<Produto> menuByCategory = database.ListByCategory("Lanches");
+            //Pesquisa por produto
+            List<Produto> menuBySearch = database.ListBySearch("Hamburguer");
+
+            //Manipulação da tabela Carrinho
+            var cart = new DbCartService(sqlConnectionString);
+            //Adição de item ao carrinho
             var item = new CartItem(){
                 ProductId = 2,
-                Nome = "Batata frita",
+                Name = "Batata frita",
                 Price = 2000,
                 Quantity = 1,
                 Observations = "Sem sal"

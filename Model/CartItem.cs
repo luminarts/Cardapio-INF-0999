@@ -41,7 +41,7 @@ namespace FastFoodly.Model
         }
 
 		//Propriedade quantity, que representa a quantidade de itens desse produto.
-        public decimal? Quantity
+        public int? Quantity
         {
             get { return quantity; }
             set { quantity = value; }
