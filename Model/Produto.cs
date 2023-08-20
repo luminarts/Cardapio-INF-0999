@@ -3,8 +3,6 @@ using System.Collections.Generic;
 
 namespace FastFoodly.Model
 {
-    //Vai usar toolkit mvvm?
-    //A classe ObservableObject, fornecida pelo Community Toolkit MVVM, permite a notificação de alterações de propriedades.
     public class Produto
     {
         private int? productId;

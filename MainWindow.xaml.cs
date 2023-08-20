@@ -13,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using FastFoodly;
+using FastFoodly.Model;
 
 namespace Fast_Foodly
 {
@@ -29,6 +31,15 @@ namespace Fast_Foodly
             var menu = database.ListAllMenu();
             var menuByCategory = database.ListByCategory("Lanches");
             var menuBySearch = database.ListBySearch("Hamburguer");
+            var cart = new DbCartService();
+            var item = new CartItem(){
+                ProductId = 2,
+                Nome = "Batata frita",
+                Price = 2000,
+                Quantity = 1,
+                Observations = "Sem sal"
+            };
+            cart.InsertItem(item);
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
