@@ -40,7 +40,8 @@ namespace FastFoodly
                         Name = reader.GetString(1),
                         Price = reader.GetDecimal(2),
                         Description = reader.GetString(3),
-                        Ingredients = new List<string>()
+                        Ingredients = new List<string>(),
+                        Category = reader.GetString(5)
                     };
 
                     //salva valor do Id do produto
