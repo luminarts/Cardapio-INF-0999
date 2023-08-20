@@ -48,6 +48,8 @@ namespace Fast_Foodly
                 Observations = "Sem sal"
             };
             cart.InsertItem(item);
+
+            List<CartItem> cartItems = cart.ListAllItems();
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)

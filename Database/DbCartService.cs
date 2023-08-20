@@ -53,36 +53,38 @@ namespace FastFoodly
 				{
 					while (reader.Read())
 					{
-						// Cria o objeto cartItem e salva as variaveis name, price e description
+						// Cria o objeto cartItem e salva suas variaveis
 						var cartItem = new CartItem()
 						{
+							ItemId = (int)reader.GetDecimal(0),
+							ProductId = (int)reader.GetDecimal(1),
 							Name = reader.GetString(2),
 							Price = reader.GetDecimal(3),
 							Quantity = (int)reader.GetDecimal(4),
-							Observations = new List<string>(),
+							Observations = reader.GetString(5)
 						};
 
 						//salva valor do Id do cartItem
-						object value = reader.GetValue(0);
-						if (value is decimal decimalValue)
-						{
-							int numericValue = (int)decimalValue; // Convert decimal to int
-							cartItem.ItemId = numericValue;
-						}
+						// object value = reader.GetValue(0);
+						// if (value is decimal decimalValue)
+						// {
+						// 	int numericValue = (int)decimalValue; // Convert decimal to int
+						// 	cartItem.ItemId = numericValue;
+						// }
 
-						value = reader.GetValue(1);
-						if (value is decimal decimalValue)
-						{
-							int numericValue = (int)decimalValue; // Convert decimal to int
-							cartItem.ProductId = numericValue;
-						}
+						// value = reader.GetValue(1);
+						// if (value is decimal decimalValue)
+						// {
+						// 	int numericValue = (int)decimalValue; // Convert decimal to int
+						// 	cartItem.ProductId = numericValue;
+						// }
 
 						// salva elementos na lista de observações
-						var rawList = reader.GetString(5).Split(',');
-						for (int i = 0; i < rawList.Length; i++)
-						{
-							cartItem.Observations?.Add(rawList[i]);
-						}
+						// var rawList = reader.GetString(5).Split(',');
+						// for (int i = 0; i < rawList.Length; i++)
+						// {
+						// 	cartItem.Observations?.Add(rawList[i]);
+						// }
 						cart.Add(cartItem);
 					}
 				}
