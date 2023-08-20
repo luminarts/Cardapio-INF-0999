@@ -1,7 +1,7 @@
-﻿<Application x:Class="FastFoodly.App"
+﻿<Application x:Class="Categoria.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:FastFoodly"
+             xmlns:local="clr-namespace:Categoria"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
          
