@@ -5,8 +5,22 @@
              xmlns:viewModel="clr-namespace:FastFoodly.ViewModel"
              xmlns:view="clr-namespace:FastFoodly.View">
     <Application.Resources>
-        <DataTemplate DataType="{x:Type TypeName=viewModel:HomeViewModel}">
-            <view:HomeWindow/>
-        </DataTemplate>
+
+        <Style x:Key="CorneredImage" TargetType="Image">
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="50"/>
+                </Style>
+            </Style.Resources>
+        </Style>
+
+        <Style x:Key="RoundButton" TargetType="Button">
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="11"/>
+                </Style>
+            </Style.Resources>
+        </Style>
+
     </Application.Resources>
 </Application>
