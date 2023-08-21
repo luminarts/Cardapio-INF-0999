@@ -19,6 +19,50 @@
                     <Setter Property="CornerRadius" Value="11"/>
                 </Style>
             </Style.Resources>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="Blue" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!--<Style x:Key="SelectionButton" TargetType="Button">
+            <Style.Triggers>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="#570B77"/>
+                    <Setter Property="Content">
+                        <Setter.Value>
+                            
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>-->
+            
+        <!--</Style>-->
+
+        <Style x:Key="SelectionButton" TargetType="ToggleButton">
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="LightGray" />
+                    <Setter Property="BorderBrush" Value="DarkGray" />
+                </Trigger>
+                <Trigger Property="IsChecked" Value="True" >
+                    <Setter Property="Content">
+                        <Setter.Value>
+                            <Grid Background="#570B77" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Rectangle Height="14" Width="14" Margin="0.5" Fill="#570B77" StrokeThickness="0" RadiusX="5" RadiusY="5"/>
+                            </Grid>
+                            <!--<BeginStoryboard>
+                                <Storyboard>
+                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Content">
+                                        <DiscreteObjectKeyFrame KeyTime="0" Value="Pressed!"/>
+                                    </ObjectAnimationUsingKeyFrames>
+                                </Storyboard>
+                            </BeginStoryboard>-->
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
         </Style>
 
     </Application.Resources>
