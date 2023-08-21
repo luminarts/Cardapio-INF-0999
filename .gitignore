@@ -1,6 +1,5 @@
 .vscode
-.vs
+.vs/
 bin/
 obj/
 *.sln
-.vs/Fast*

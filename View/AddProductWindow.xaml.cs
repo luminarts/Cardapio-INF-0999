@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,16 +12,15 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using FastFoodly.ViewModel;
 
-namespace FastFoodly
+namespace FastFoodly.View
 {
     /// <summary>
-    /// Interação lógica para MainWindow.xam
+    /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class AddProductWindow : UserControl
     {
-        public MainWindow()
+        public AddProductWindow()
         {
             InitializeComponent();
         }
