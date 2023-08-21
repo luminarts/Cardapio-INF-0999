@@ -109,7 +109,7 @@
         </StackPanel>
 
         <!--StackPanel responsável por guardar a informação dos adicionais e suas quantidades-->
-        <StackPanel Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left" >
+        <StackPanel x:Name="AddOnsPanel" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left" >
             <TextBlock Foreground="#9D9797" FontSize="30" Margin="0,30,0,0">
                 Adicionais
             </TextBlock>
@@ -242,9 +242,10 @@
             </StackPanel>
         </StackPanel>
 
-        <StackPanel Grid.Row="3" Grid.Column="1" VerticalAlignment="Center"  Margin="101,0,385,0">
+        <StackPanel Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" >
 
-            <Button x:Name="AddButton" Content="Button" Style="{DynamicResource RoundButton}" Background="#570B77" Foreground="White" Height="60">
+            <Button x:Name="AddButton" Content="Button" Style="{DynamicResource RoundButton}" Background="#570B77"
+                    Foreground="White" Height="60" Width="{Binding ActualWidth, ElementName=AddOnsPanel}" Margin="0,0,0,0">
                 <Button.ContentTemplate>
                     <DataTemplate>
                         <Grid Width="{Binding ActualWidth, ElementName=AddButton}">
