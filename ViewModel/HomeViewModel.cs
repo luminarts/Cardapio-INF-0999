@@ -4,5 +4,5 @@ namespace FastFoodly.ViewModel;
 
 public class HomeViewModel : ObservableObject
 {
-
+    
 }

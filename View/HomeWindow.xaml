@@ -1,11 +1,11 @@
-<Window x:Class="FastFoodly.View.HomeWindow"
+<UserControl x:Class="FastFoodly.View.HomeWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FastFoodly.View"
-        mc:Ignorable="d"
-        Title="HomeWindow" Height="568" Width="800">
+        mc:Ignorable="d">
+        <!--Title="HomeWindow" Height="568" Width="800"-->
     <Grid>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Center" Height="122" VerticalAlignment="Top" Width="800" OpacityMask="Black" Background="#FF570BB7">
             <TextBlock HorizontalAlignment="Left" Height="26" Margin="136,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230" FontFamily="Segoe UI Symbol" Foreground="White" FontSize="24"><Run Language="pt-br" Text="Olá"/></TextBlock>
@@ -74,4 +74,4 @@
         <TextBlock HorizontalAlignment="Left" Margin="682,630,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="21" Width="74" FontFamily="Segoe UI Symbol" FontSize="14" Foreground="#FF32CF52" FontWeight="Bold"><Run Text="   "/><Run Language="pt-br" Text="R$26,00"/></TextBlock>
 
     </Grid>
-</Window>
+</UserControl>

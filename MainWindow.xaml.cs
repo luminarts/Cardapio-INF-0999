@@ -13,8 +13,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using FastFoodly.ViewModel;
 
-namespace FastFoodly.View
+namespace FastFoodly
 {
     /// <summary>
     /// Interação lógica para MainWindow.xam
@@ -24,24 +25,6 @@ namespace FastFoodly.View
         public MainWindow()
         {
             InitializeComponent();
-            string sqlConnectionString = ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
-            var database = new FastFoodly.DatabaseService(sqlConnectionString);
-            var cardapio = database.ConsultaCardapio();
-        }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
-        {
-
         }
     }
 }

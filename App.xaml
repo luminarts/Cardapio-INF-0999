@@ -6,7 +6,7 @@
              xmlns:view="clr-namespace:FastFoodly.View">
     <Application.Resources>
         <DataTemplate DataType="{x:Type TypeName=viewModel:HomeViewModel}">
-            <view:HomeWIndow/>
+            <view:HomeWindow/>
         </DataTemplate>
     </Application.Resources>
 </Application>

@@ -1,22 +1,24 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using FastFoodly.Services;
+using FastFoodly.Stores;
 
 namespace FastFoodly.ViewModel;
 public class MainViewModel : ObservableObject
 {
-    private INavigationService _navigation;
+    private readonly NavigationStore _navigationStore;
 
-    public INavigationService Navigation
+    public ObservableObject CurrentViewModel => _navigationStore.CurrentViewModel;
+
+    /*public INavigationService Navigation
     {
         get => _navigation;
         set => SetProperty(ref _navigation, value);
-    }
+    }*/
 
-    public RelayCommand NavigateHomeCommand {get; set;}
-    public MainViewModel(INavigationService navService)
+    public RelayCommand NavigateToHome {get; set;}
+    public MainViewModel(NavigationStore navStore)
     {
-        Navigation = navService;
-        NavigateHomeCommand = new RelayCommand(Navigation.NavigateTo<HomeViewModel>);
+        _navigationStore = navStore;
     }
 }

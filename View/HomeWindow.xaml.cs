@@ -19,7 +19,7 @@ namespace FastFoodly.View
     /// <summary>
     /// Interação lógica para MainWindow.xam
     /// </summary>
-    public partial class HomeWindow : Window
+    public partial class HomeWindow : UserControl
     {
         public HomeWindow()
         {

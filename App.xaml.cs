@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using CommunityToolkit.Mvvm.ComponentModel;
 using FastFoodly.Services;
+using FastFoodly.Stores;
 using FastFoodly.View;
 using FastFoodly.ViewModel;
 using Microsoft.Extensions.DependencyInjection;
@@ -18,8 +19,8 @@ namespace FastFoodly
     /// </summary>
     public partial class App : Application
     {
-        private readonly ServiceProvider _serviceProvider;
-        public App()
+        //private readonly ServiceProvider _serviceProvider;
+        /*public App()
         {
             IServiceCollection services = new ServiceCollection();
 
@@ -35,13 +36,22 @@ namespace FastFoodly
             services.AddSingleton<Func<Type, ObservableObject>>(serviceProvider => viewModelType => (ObservableObject)serviceProvider.GetRequiredService(viewModelType));
 
             _serviceProvider = services.BuildServiceProvider();
-        }
+        }*/
 
         protected override void OnStartup(StartupEventArgs e)
         {
-            _serviceProvider.GetRequiredService<MainWindow>().Show();
             base.OnStartup(e);
-        }
+
+            NavigationStore navigationStore = new NavigationStore
+            {
+                CurrentViewModel = new HomeViewModel()
+            };
+            var mainWindow = new MainWindow()
+            {
+                DataContext = new MainViewModel(navigationStore)
+            };
+            mainWindow.Show();  
+        } 
 
         string connectionString = ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
     }
