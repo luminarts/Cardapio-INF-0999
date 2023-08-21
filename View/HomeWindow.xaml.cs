@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using FastFoodly.Model;
 
 namespace FastFoodly.View
 {
@@ -27,6 +28,44 @@ namespace FastFoodly.View
             string sqlConnectionString = ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
             var database = new FastFoodly.DatabaseService(sqlConnectionString);
             var cardapio = database.ConsultaCardapio();
+            string sqlConnectionString = ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
+
+            //Manipulação da tabela do cardapio
+            var database = new DatabaseService(sqlConnectionString);
+            //Lista todos os itens do menu
+            List<Produto> menu = database.ListAllMenu();
+            //Lista de item de uma determinada categoria
+            List<Produto> menuByCategory = database.ListByCategory("Lanches");
+            //Pesquisa por produto
+            List<Produto> menuBySearch = database.ListBySearch("Hamburguer");
+
+            //Manipulação da tabela Carrinho
+            var cart = new DbCartService(sqlConnectionString);
+            //Adição de item ao carrinho
+            var item = new CartItem()
+            {
+                ProductId = 2,
+                Name = "Batata frita",
+                Price = 2000,
+                Quantity = 1,
+                Observations = "Sem sal"
+            };
+            cart.InsertItem(item);
+
+            //Lista todos os itens do carrinho
+            List<CartItem> cartItems = cart.ListAllItems();
+
+            //Deleta um item especifico do carrinho
+            cart.DeleteItem(cartItems[0].ItemId);
+            //Lista todos os itens do carrinho - deve retornar lista sem o item deletado
+            cartItems = cart.ListAllItems();
+
+            //Deleta todos os itens do carrihno
+            cart.DeleteAllItems();
+            //Lista todos os itens do carrinho - deve retornar lista vazia
+            cartItems = cart.ListAllItems();
+
+        }
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
