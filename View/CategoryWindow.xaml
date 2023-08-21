@@ -7,6 +7,8 @@
         mc:Ignorable="d">
         <!--Title="MainWindow" Height="800" Width="1400" WindowState="Maximized"-->
     <Grid>
+        <Button x:Name="CategoryButton" Margin="10,0,0,0"  
+                        Width="40" Height="40" CommandParameter="{Binding}" Command="{Binding NavigateToHome}"/>
         <Rectangle HorizontalAlignment="Center" Height="224" VerticalAlignment="Top" Width="1400" Fill="#FF570BB7"/>
         <Image HorizontalAlignment="Left" Height="125" Margin="28,74,0,0" VerticalAlignment="Top" Width="198" 
                Source="/LogoFastFoodly(1).png"/>

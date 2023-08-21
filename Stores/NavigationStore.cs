@@ -1,21 +1,29 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using FastFoodly.ViewModel;
+using NavigationMVVM.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace FastFoodly.Stores
 {
-    public class NavigationStore : ObservableObject
+    public class NavigationStore
     {
-        private ObservableObject _currentViewModel;
-        public ObservableObject CurrentViewModel
+        public event Action CurrentViewModelChanged;
+        private ViewModelBase _currentViewModel;
+        public ViewModelBase CurrentViewModel
         {
             get => _currentViewModel;
             set
             {
-                SetProperty(ref _currentViewModel, value);
+                _currentViewModel = value;
+                OnCurrentViewModelChanged(); 
             }
+        }
+
+        private void OnCurrentViewModelChanged()
+        {
+            CurrentViewModelChanged?.Invoke();
         }
     }
 }

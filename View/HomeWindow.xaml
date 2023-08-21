@@ -7,6 +7,10 @@
         mc:Ignorable="d">
         <!--Title="HomeWindow" Height="568" Width="800"-->
     <Grid>
+        
+        <Button x:Name="CategoryButton" Margin="10,0,0,0"  
+                        Width="40" Height="40" CommandParameter="{Binding}" Command="{Binding NavigateToCategory}"/>
+
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Center" Height="122" VerticalAlignment="Top" Width="800" OpacityMask="Black" Background="#FF570BB7">
             <TextBlock HorizontalAlignment="Left" Height="26" Margin="136,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230" FontFamily="Segoe UI Symbol" Foreground="White" FontSize="24"><Run Language="pt-br" Text="Olá"/></TextBlock>
         </Border>

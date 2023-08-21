@@ -42,10 +42,10 @@ namespace FastFoodly
         {
             base.OnStartup(e);
 
-            NavigationStore navigationStore = new NavigationStore
-            {
-                CurrentViewModel = new HomeViewModel()
-            };
+            NavigationStore navigationStore = new NavigationStore();
+            
+            navigationStore.CurrentViewModel = new HomeViewModel(navigationStore); 
+            
             var mainWindow = new MainWindow()
             {
                 DataContext = new MainViewModel(navigationStore)
