@@ -26,9 +26,6 @@ namespace FastFoodly.View
         {
             InitializeComponent();
             string sqlConnectionString = ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
-            var database = new FastFoodly.DatabaseService(sqlConnectionString);
-            var cardapio = database.ConsultaCardapio();
-            string sqlConnectionString = ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
 
             //Manipulação da tabela do cardapio
             var database = new DatabaseService(sqlConnectionString);
@@ -65,7 +62,6 @@ namespace FastFoodly.View
             //Lista todos os itens do carrinho - deve retornar lista vazia
             cartItems = cart.ListAllItems();
 
-        }
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
