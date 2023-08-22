@@ -19,39 +19,41 @@ namespace FastFoodly
     /// </summary>
     public partial class App : Application
     {
-        //private readonly ServiceProvider _serviceProvider;
-        /*public App()
+        private readonly IServiceProvider _serviceProvider;
+        public App()
         {
             IServiceCollection services = new ServiceCollection();
 
-            services.AddSingleton<MainWindow>(provider => new MainWindow
-            {
-                DataContext = provider.GetRequiredService<MainViewModel>()
-            });
+            services.AddSingleton<NavigationStore>();
             services.AddSingleton<MainViewModel>();
-            services.AddSingleton<HomeWindow>();
-            services.AddSingleton<HomeViewModel>();
-            services.AddSingleton<INavigationService, NavigationService>();
 
-            services.AddSingleton<Func<Type, ObservableObject>>(serviceProvider => viewModelType => (ObservableObject)serviceProvider.GetRequiredService(viewModelType));
+            services.AddSingleton<INavigationService>(s => CreateHomeNavigationService(s));
+
+            services.AddSingleton<MainWindow>(s => new MainWindow
+            {
+                DataContext = s.GetRequiredService<MainViewModel>()
+            });
 
             _serviceProvider = services.BuildServiceProvider();
-        }*/
+        }
 
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
 
-            NavigationStore navigationStore = new NavigationStore();
+            INavigationService initialNavigationService = _serviceProvider.GetRequiredService<INavigationService>();
+            initialNavigationService.Navigate();
             
-            navigationStore.CurrentViewModel = new HomeViewModel(navigationStore); 
-            
-            var mainWindow = new MainWindow()
-            {
-                DataContext = new MainViewModel(navigationStore)
-            };
-            mainWindow.Show();  
-        } 
+            MainWindow = _serviceProvider.GetRequiredService<MainWindow>();
+            MainWindow.Show();  
+        }
+
+        private INavigationService CreateHomeNavigationService(IServiceProvider serviceProvider)
+        {
+            return new NavigationService<HomeViewModel>(
+                serviceProvider.GetRequiredService<NavigationStore>(),
+                () => new HomeViewModel(_serviceProvider.GetRequiredService<NavigationStore>()));
+        }
 
         string connectionString = ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
     }
