@@ -145,7 +145,7 @@
 
         <StackPanel Grid.Row="3" Grid.Column="1" VerticalAlignment="Center"  Margin="101,0,385,0" RenderTransformOrigin="0.5,0.5">
 
-            <Button Content="Button" Style="{StaticResource RoundButton}" Background="#570B77" Foreground="White">
+            <Button x:Name="AddToCart" Content="Button" Style="{StaticResource RoundButton}" CommandParameter="{Binding}" Command="{Binding AddToCart}" Background="#570B77" Foreground="White">
                 <Button.ContentTemplate>
                     <DataTemplate>
                         <Grid>
