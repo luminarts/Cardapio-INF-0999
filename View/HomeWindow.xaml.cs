@@ -13,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using FastFoodly.Model;
+using FastFoodly.Models;
 
 namespace FastFoodly.View
 {
@@ -30,11 +30,11 @@ namespace FastFoodly.View
             //Manipulação da tabela do cardapio
             var database = new DatabaseService(sqlConnectionString);
             //Lista todos os itens do menu
-            List<Produto> menu = database.ListAllMenu();
+            List<Product> menu = database.ListAllMenu();
             //Lista de item de uma determinada categoria
-            List<Produto> menuByCategory = database.ListByCategory("Lanches");
+            List<Product> menuByCategory = database.ListByCategory("Lanches");
             //Pesquisa por produto
-            List<Produto> menuBySearch = database.ListBySearch("Hamburguer");
+            List<Product> menuBySearch = database.ListBySearch("Hamburguer");
 
             //Manipulação da tabela Carrinho
             var cart = new DbCartService(sqlConnectionString);
