@@ -5,26 +5,60 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Categoria"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="1400" WindowState="Maximized">
+        Title="MainWindow" Height="1080" Width="1920" WindowState="Maximized">
     <Grid>
-        <Rectangle HorizontalAlignment="Center" Height="224" VerticalAlignment="Top" Width="1400" Fill="#FF570BB7"/>
-        <Image HorizontalAlignment="Left" Height="125" Margin="28,74,0,0" VerticalAlignment="Top" Width="198" 
-               Source="/LogoFastFoodly(1).png"/>
-        <TextBlock HorizontalAlignment="Left" Height="62" Margin="262,74,0,0" TextWrapping="Wrap" 
-                   VerticalAlignment="Top" Width="330" FontSize="48" FontFamily="Segoe UI Symbol" 
-                   FontWeight="Bold" Foreground="White"><Run Language="pt-br" Text="Lanches"/></TextBlock>
-        <TextBlock Height="74" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Segoe UI Symbol" 
-                   Foreground="White" Margin="986,16,0,0" FontSize="14" HorizontalAlignment="Left" 
-                   Width="291"><Run Text="Rua Saturnino Brito, 573 - Cidade Universitária "/><LineBreak/>
-            <Run Text="(19) 3521-7000"/><LineBreak/><Run Text="@fastfoodly"/></TextBlock>
-        <TextBox x:Name="txtSearch" Width="579" VerticalAlignment="Top" HorizontalAlignment="Left" Height="32" 
-                 Text="Qual comida você está procurando?" Foreground="Silver" Margin="349,207,0,0" 
-                 TextChanged="txtSearch_TextChanged" FontSize="18" Background="White"/>
-        <Button Content="Buscar" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="933,207,0,0" 
-                Height="32" Width="54"/>
-        <TextBox HorizontalAlignment="Left" Height="22" Margin="262,25,0,0" VerticalAlignment="Top" Width="57" 
-                 Background="#FF570BB7" BorderBrush="#FF570BB7" Foreground="White" FontSize="14" 
-                 FontFamily="Segoe UI Symbol" Cursor="Hand" Text="&lt; Voltar"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="250" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" Background="#FF570BB7" />
+        <Border Grid.Row="1" Background="White" />
+        
+        <!--StackPanel do Topo de Página-->
+        <StackPanel x:Name="TopStackPanel" Grid.Row="0" Orientation="Horizontal">
+            <Grid Width="{Binding ActualWidth, ElementName=TopStackPanel}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="1" Grid.Row="0">
+                    <Button Width="Auto" Height="Auto" HorizontalAlignment="Left" VerticalAlignment="Center" Background="Transparent" Foreground="White" Margin="0,15,0,0">
+                        <TextBlock Text="&lt; Voltar" FontSize="14" VerticalAlignment="Center"/>
+                    </Button>
+                </StackPanel>
+                <StackPanel Grid.Column="2" Grid.Row="0" Orientation="Vertical">
+                    <TextBlock Text="Rua Saturnino Brito, 573 - Cidade Universitária" Height="Auto" Width="Auto" Foreground="White"/>
+                    <TextBlock Text="(19) 3521-7000" Height="Auto" Width="Auto" Foreground="White" />
+                    <TextBlock Text="@fastfoodly" Height="Auto" Width="Auto" Foreground="White"/>
+                </StackPanel>
+                <StackPanel Grid.Column="0" Grid.Row="1" Margin="0,0,0,0">
+                    
+                        <Image HorizontalAlignment="Left" VerticalAlignment="Top" 
+                        Source="\Assets\Images\LogoFastFoodly (1).png" Stretch="UniformToFill" MaxHeight="160" MaxWidth="240"/>
+                    
+                </StackPanel>
+                <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Height="Auto" Width="Auto" FontSize="48" Text="Lanches" Margin="0,0,-150,0" Foreground="White"/>
+                    <Grid>
+                        <TextBox x:Name="txtSearch" Width="579" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="32" 
+                             Text="Qual comida você está procurando?" Foreground="Silver" 
+                             TextChanged="txtSearch_TextChanged" FontSize="18" Background="White" Margin="0,0,0,-16" />
+                        <Grid.Effect>
+                            <DropShadowEffect ShadowDepth="4" Direction="280" BlurRadius="5" Opacity="0.5" />
+                        </Grid.Effect>
+
+                    </Grid>
+                    <Button Content="Buscar" VerticalAlignment="Bottom" HorizontalAlignment="Center" 
+                Height="32" Width="54" Margin="10,0,0,-16"/>
+                </StackPanel>
+
+            </Grid>
+        </StackPanel>
         <TextBox HorizontalAlignment="Left" Height="168" Margin="262,265,0,0" Text="&#xA;&#xA;&#xA;&#xA;   X-Salada" 
                  VerticalAlignment="Top" Width="185" FontSize="16" FontWeight="Bold" TextChanged="TextBox_TextChanged_3"/>
         <TextBox HorizontalAlignment="Left" Height="168" Margin="466,265,0,0" Text="TextBox" 
