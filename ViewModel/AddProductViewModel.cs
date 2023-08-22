@@ -1,4 +1,9 @@
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Messaging;
+using CommunityToolkit.Mvvm.Messaging.Messages;
+using FastFoodly.Models;
 
 namespace FastFoodly.ViewModel;
 
@@ -18,6 +23,8 @@ public class AddProductViewModel : ObservableObject
 	//propriedade IsPlaying como true.
 	private void AddToCartCommand()
 	{
+		var cart = new DbCartService();
+
 		//Adição de item ao carrinho
 		var item = new CartItem()
 		{
