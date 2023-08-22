@@ -25,10 +25,9 @@ namespace FastFoodly.View
         public HomeWindow()
         {
             InitializeComponent();
-            string sqlConnectionString = ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
 
             //Manipulação da tabela do cardapio
-            var database = new DatabaseService(sqlConnectionString);
+            var database = new DatabaseService();
             //Lista todos os itens do menu
             List<Product> menu = database.ListAllMenu();
             //Lista de item de uma determinada categoria
@@ -37,7 +36,7 @@ namespace FastFoodly.View
             List<Product> menuBySearch = database.ListBySearch("Hamburguer");
 
             //Manipulação da tabela Carrinho
-            var cart = new DbCartService(sqlConnectionString);
+            var cart = new DbCartService();
             //Adição de item ao carrinho
             var item = new CartItem()
             {
