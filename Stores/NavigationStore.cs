@@ -1,6 +1,5 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using FastFoodly.ViewModel;
-using NavigationMVVM.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Text;

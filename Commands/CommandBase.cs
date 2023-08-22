@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
 
-namespace NavigationMVVM.Commands
+namespace FastFoodly.Commands
 {
     public abstract class CommandBase : ICommand
     {

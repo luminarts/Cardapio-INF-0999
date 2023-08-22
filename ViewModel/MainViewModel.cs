@@ -2,7 +2,6 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using FastFoodly.Services;
 using FastFoodly.Stores;
-using NavigationMVVM.ViewModels;
 
 namespace FastFoodly.ViewModel;
 public class MainViewModel : ViewModelBase

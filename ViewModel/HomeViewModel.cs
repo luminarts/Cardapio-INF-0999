@@ -2,9 +2,9 @@ using System;
 using System.Windows.Input;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using FastFoodly.Commands;
+using FastFoodly.Services;
 using FastFoodly.Stores;
-using NavigationMVVM.Commands;
-using NavigationMVVM.ViewModels;
 
 namespace FastFoodly.ViewModel;
 
@@ -15,6 +15,6 @@ public class HomeViewModel : ViewModelBase
     public HomeViewModel(NavigationStore navigationStore)
     {
         _navigationStore = navigationStore;
-        NavigateToCategory = new NavigateToCategoryCommand(_navigationStore);
+        NavigateToCategory = new NavigateCommand<CategoryViewModel>(new NavigationService<CategoryViewModel>(navigationStore, () => new CategoryViewModel(navigationStore)));
     }
 }

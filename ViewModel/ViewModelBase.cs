@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
 
-namespace NavigationMVVM.ViewModels
+namespace FastFoodly.ViewModel
 {
     public class ViewModelBase : INotifyPropertyChanged, IDisposable
     {
