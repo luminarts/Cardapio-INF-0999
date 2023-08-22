@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Printing;
 using System.Security.Cryptography;
-using FastFoodly.Model;
+using FastFoodly.Models;
 
 namespace FastFoodly
 {
@@ -23,12 +23,12 @@ namespace FastFoodly
             return connection;
         }
 
-        public List<Produto> ListAllMenu()
+        public List<Product> ListAllMenu()
         {
             try
             {
                 var conn = OpenConnection();
-                List<Produto> cardapio = new List<Produto>();
+                List<Product> cardapio = new List<Product>();
                 SqlCommand command = new SqlCommand("SELECT * FROM Cardapio", conn);
 
                 SqlDataReader reader = command.ExecuteReader();
@@ -37,7 +37,7 @@ namespace FastFoodly
                     while (reader.Read())
                     {
                         // Cria o objeto Produto e salva suas variaveis
-                        var produto = new Produto()
+                        var produto = new Product()
                         {
                             ProductId = (int)reader.GetDecimal(0),
                             Name = reader.GetString(1),
@@ -65,11 +65,11 @@ namespace FastFoodly
             }
         }
 
-        public List<Produto> ListByCategory(string categoria)
+        public List<Product> ListByCategory(string categoria)
         {
             try
             {
-                List<Produto> menuByCategory = new List<Produto>();
+                List<Product> menuByCategory = new List<Product>();
                 var conn = OpenConnection();
                 SqlCommand command = new SqlCommand($"SELECT * FROM cardapio WHERE categoria='{categoria}'", conn);
                 SqlDataReader reader = command.ExecuteReader();
@@ -78,7 +78,7 @@ namespace FastFoodly
                     while (reader.Read())
                     {
                         // Cria o objeto Produto e salva suas variaveis
-                        var produto = new Produto()
+                        var produto = new Product()
                         {
                             ProductId = (int)reader.GetDecimal(0),
                             Name = reader.GetString(1),
@@ -106,11 +106,11 @@ namespace FastFoodly
             }
         }
 
-        public List<Produto> ListBySearch(string searchString)
+        public List<Product> ListBySearch(string searchString)
         {
             try
             {
-                List<Produto> menuBySearch = new List<Produto>();
+                List<Product> menuBySearch = new List<Product>();
                 var conn = OpenConnection();
                 SqlCommand command = new SqlCommand($"SELECT * FROM cardapio WHERE descricao LIKE '%{searchString}%' OR nome LIKE '%{searchString}%'", conn);
                 SqlDataReader reader = command.ExecuteReader();
@@ -119,7 +119,7 @@ namespace FastFoodly
                     while (reader.Read())
                     {
                         // Cria o objeto Produto e salva suas variaveis
-                        var produto = new Produto()
+                        var produto = new Product()
                         {
                             ProductId = (int)reader.GetDecimal(0),
                             Name = reader.GetString(1),
@@ -147,12 +147,12 @@ namespace FastFoodly
             }
         }
 
-        public Produto GetProductById(int id)
+        public Product GetProductById(int id)
         {
             try
             {
                 // Cria o objeto Produto
-                Produto menuBySearch = new Produto();
+                Product menuBySearch = new Product();
                 var conn = OpenConnection();
                 SqlCommand command = new SqlCommand($"SELECT * FROM cardapio WHERE idProduto={id}", conn);
                 SqlDataReader reader = command.ExecuteReader();

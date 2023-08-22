@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Printing;
 using System.Security.Cryptography;
-using FastFoodly.Model;
+using FastFoodly.Models;
 
 namespace FastFoodly
 {
