@@ -1,34 +1,22 @@
 using System;
 using System.Data.SqlClient;
 using CommunityToolkit.Mvvm.ComponentModel;
+using FastFoodly.Stores;
+using FastFoodly.ViewModel;
 
 namespace FastFoodly.Services;
-
-public interface INavigationService
+public class NavigationService<TViewModel> : INavigationService where TViewModel : ViewModelBase
 {
-    ObservableObject CurrentView {get; }
-    void NavigateTo<T>() where T : ObservableObject;
-}
-
-public class NavigationService : ObservableObject, INavigationService
-{
-    private ObservableObject _currentView;
-    private readonly Func<Type, ObservableObject> _viewModelFactory;
-
-    public ObservableObject CurrentView
+    private readonly NavigationStore _navigationStore;
+    private readonly Func<TViewModel> _createViewModel;
+    
+    public NavigationService(NavigationStore navigationStore, Func<TViewModel> createViewModel)
     {
-        get => _currentView;
-        private set => SetProperty(ref _currentView, value);
+        _navigationStore = navigationStore;
+        _createViewModel = createViewModel;
     }
-
-    public NavigationService(Func<Type, ObservableObject> viewModelFactory)
-    {   
-        _viewModelFactory = viewModelFactory;
-    }
-
-    public void NavigateTo<TViewModel>() where TViewModel : ObservableObject
+    public void Navigate()
     {
-        ObservableObject viewModel = _viewModelFactory.Invoke(typeof(TViewModel));
-        CurrentView = viewModel;
+        _navigationStore.CurrentViewModel = _createViewModel();
     }
 }

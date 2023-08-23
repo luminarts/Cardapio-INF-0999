@@ -7,7 +7,7 @@ using FastFoodly.Models;
 
 namespace FastFoodly.ViewModel;
 
-public class AddProductViewModel : ObservableObject
+public class AddProductViewModel : ViewModelBase
 {
 	//Essas propriedades representam os comandos que podem ser executados na ViewModel. 
 	//Os comandos são implementados utilizando a classe RelayCommand do Community Toolkit MVVM.
