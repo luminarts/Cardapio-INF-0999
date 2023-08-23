@@ -58,7 +58,7 @@
             Background="#FF570BB7" 
             OpacityMask="#FF570BB7" 
             BorderBrush="#FF570BB7" 
-            oreground="White" 
+            Foreground="White" 
             FontFamily="Segoe UI Symbol"/>
         <TextBox HorizontalAlignment="Left" 
             Height="24" 
@@ -554,7 +554,7 @@
         <TextBlock HorizontalAlignment="Left" 
             Margin="448,575,0,0" 
             TextWrapping="Wrap" 
-            erticalAlignment="Top" 
+            VerticalAlignment="Top" 
             Height="21" 
             Width="151" 
             FontFamily="Segoe UI Symbol" 
