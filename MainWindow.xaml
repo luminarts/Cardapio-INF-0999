@@ -7,7 +7,7 @@
         xmlns:viewModel="clr-namespace:FastFoodly.ViewModel"
         xmlns:view="clr-namespace:FastFoodly.View"
         mc:Ignorable="d"
-        Title="MainWindow" Height="568" Width="800">
+        Title="MainWindow" Height="800" Width="1400" WindowState="Maximized">
     <Window.Resources>
         <DataTemplate DataType="{x:Type TypeName=viewModel:HomeViewModel}">
             <view:HomeWindow/>
@@ -24,6 +24,10 @@
         <DataTemplate DataType="{x:Type TypeName=viewModel:CartViewModel}">
             <view:CartWindow/>
         </DataTemplate>
+
+        <!--<DataTemplate DataType="{x:Type TypeName=viewModel:ConfirmOrderViewModel}">
+            <view:ConfirmOrderWindow/>
+        </DataTemplate>-->
     </Window.Resources>
     <Grid>
         <ContentControl Content="{Binding CurrentViewModel}"/>
