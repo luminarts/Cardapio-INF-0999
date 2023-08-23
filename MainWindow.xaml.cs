@@ -25,29 +25,17 @@ namespace Categoria
             InitializeComponent();
         }
 
-        private void txtSearch_TextChanged(object sender, TextChangedEventArgs e)
+        private void SearchBox_Enter(object sender, KeyEventArgs e)
         {
+           if (e.Key == Key.Enter)
+            {
+                string typedText = txtSearch.Text;
 
-        }
+                txtSearch.Text = (typedText + " foi o que você digitou");
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void TextBox_TextChanged_2(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void TextBox_TextChanged_3(object sender, TextChangedEventArgs e)
-        {
-
+                
+            }
+           
         }
     }
 }
