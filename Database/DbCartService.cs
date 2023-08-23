@@ -1,9 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Printing;
 using System.Security.Cryptography;
-using FastFoodly.Model;
+using FastFoodly.Models;
 
 namespace FastFoodly
 {
@@ -11,9 +12,9 @@ namespace FastFoodly
 	{
 		private string _connectionString;
 
-		public DbCartService(string connectionString)
+		public DbCartService()
 		{
-			_connectionString = connectionString;
+			_connectionString = ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
 		}
 
 		public SqlConnection OpenConnection()
