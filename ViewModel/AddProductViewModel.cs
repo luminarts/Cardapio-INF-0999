@@ -4,6 +4,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Messaging;
 using CommunityToolkit.Mvvm.Messaging.Messages;
 using FastFoodly.Models;
+using FastFoodly.Stores;
 
 namespace FastFoodly.ViewModel;
 
@@ -13,7 +14,7 @@ public class AddProductViewModel : ViewModelBase
 	//Os comandos são implementados utilizando a classe RelayCommand do Community Toolkit MVVM.
 	public RelayCommand AddToCart { get; set; }
 
-	public AddProductViewModel()
+	public AddProductViewModel(NavigationStore navigationStore)
 	{
 		AddToCart = new RelayCommand(AddToCartCommand);
 	}
