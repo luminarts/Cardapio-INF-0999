@@ -1,4 +1,4 @@
-﻿﻿using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,26 +16,13 @@ using System.Windows.Shapes;
 namespace FastFoodly.View
 {
     /// <summary>
-    /// Interação lógica para UserControl.xam
+    /// Interação lógica para MainWindow.xam
     /// </summary>
-    public partial class CategoryWindow : UserControl
+    public partial class ConfirmOrderWindow : UserControl
     {
-        public CategoryWindow()
+        public ConfirmOrderWindow()
         {
             InitializeComponent();
-        }
-
-        private void SearchBox_Enter(object sender, KeyEventArgs e)
-        {
-           if (e.Key == Key.Enter)
-            {
-                string typedText = txtSearch.Text;
-
-                txtSearch.Text = (typedText + " foi o que você digitou");
-
-                
-            }
-           
         }
     }
 }
