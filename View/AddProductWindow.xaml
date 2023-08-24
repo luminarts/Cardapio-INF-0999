@@ -41,7 +41,8 @@
                 Width="140"
                 Foreground="White" 
                 Background="Transparent"
-                BorderBrush="Transparent">
+                BorderBrush="Transparent"
+                Command="{Binding NavigateToHome}">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock VerticalAlignment="Center">Ícone</TextBlock>
                     <TextBlock Margin="30,0,0,0" FontSize="28"> Voltar</TextBlock>
