@@ -8,9 +8,11 @@ namespace FastFoodly.ViewModel;
 
 public class CartViewModel : ViewModelBase
 {
+    private readonly NavigationStore _navigationStore;
     public ICommand NavigateToHome { get; set; }
     public CartViewModel(NavigationStore navigationStore)
     {
+        _navigationStore = navigationStore;
         NavigateToHome = new NavigateCommand<HomeViewModel>(new NavigationService<HomeViewModel>(navigationStore, () => new HomeViewModel(navigationStore)));
     }
 }
