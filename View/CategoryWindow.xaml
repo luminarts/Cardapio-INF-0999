@@ -14,7 +14,7 @@
                Source="/LogoFastFoodly(1).png"/>
         <TextBlock HorizontalAlignment="Left" Height="62" Margin="262,74,0,0" TextWrapping="Wrap" 
                    VerticalAlignment="Top" Width="330" FontSize="48" FontFamily="Segoe UI Symbol" 
-                   FontWeight="Bold" Foreground="White"><Run Language="pt-br" Text="Lanches"/></TextBlock>
+                   FontWeight="Bold" Foreground="White"><Run Language="pt-br" Text="{Biding CategoryName}"/></TextBlock>
         <TextBlock Height="74" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Segoe UI Symbol" 
                    Foreground="White" Margin="986,16,0,0" FontSize="14" HorizontalAlignment="Left" 
                    Width="291"><Run Text="Rua Saturnino Brito, 573 - Cidade Universitária "/><LineBreak/>
