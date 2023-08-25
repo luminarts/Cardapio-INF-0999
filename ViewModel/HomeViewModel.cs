@@ -12,11 +12,13 @@ public class HomeViewModel : ViewModelBase
 {
     private readonly NavigationStore _navigationStore;
     public ICommand NavigateToCategory { get;}
+    public ICommand NavigateToProduct { get;}
     public ICommand NavigateToCart { get;}
     public HomeViewModel(NavigationStore navigationStore)
     {
         _navigationStore = navigationStore;
         NavigateToCategory = new CategoryCommand(new ParameterNavigationService<string, CategoryViewModel>(navigationStore, (parameter) => new CategoryViewModel(parameter, navigationStore)));
+        NavigateToProduct = new ProductCommand(new ParameterNavigationService<string, AddProductViewModel>(navigationStore, (parameter) => new AddProductViewModel(parameter, navigationStore)));
         NavigateToCart = new NavigateCommand<CartViewModel>(new NavigationService<CartViewModel>(navigationStore, () => new CartViewModel(navigationStore)));
     }
 }
