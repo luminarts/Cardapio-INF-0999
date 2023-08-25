@@ -4,6 +4,7 @@ using System;
 using FastFoodly.Services;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows.Documents;
 
 namespace FastFoodly.Commands
 {
@@ -12,14 +13,15 @@ namespace FastFoodly.Commands
     {
         private readonly NavigationService<TViewModel> _navigationService;
 
-        public NavigateCommand(NavigationService<TViewModel> navigationStore)
+        public NavigateCommand(NavigationService<TViewModel> navigationService)
         {
-            _navigationService = navigationStore;
+            _navigationService = navigationService;
         }
 
         public override void Execute(object parameter)
         {
             _navigationService.Navigate();
+            
         }
     }
 }
