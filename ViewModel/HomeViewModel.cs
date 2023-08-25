@@ -16,7 +16,7 @@ public class HomeViewModel : ViewModelBase
     public HomeViewModel(NavigationStore navigationStore)
     {
         _navigationStore = navigationStore;
-        NavigateToCategory = new NavigateCommand<CategoryViewModel>(new NavigationService<CategoryViewModel>(navigationStore, () => new CategoryViewModel(navigationStore)));
+        NavigateToCategory = new CategoryCommand(new ParameterNavigationService<string, CategoryViewModel>(navigationStore, (parameter) => new CategoryViewModel(parameter, navigationStore)));
         NavigateToCart = new NavigateCommand<CartViewModel>(new NavigationService<CartViewModel>(navigationStore, () => new CartViewModel(navigationStore)));
     }
 }

@@ -17,7 +17,7 @@ public class CategoryViewModel : ViewModelBase
     {
         CategoryName = categoryName;
         //Lista de itens de uma determinada categoria
-        List<Product> menuByCategory = database.ListByCategory(CategoryName);
+        //List<Product> menuByCategory = database.ListByCategory(CategoryName);
         _navigationStore = navigationStore;
         NavigateToHome = new NavigateCommand<HomeViewModel>(new NavigationService<HomeViewModel>(navigationStore, () => new HomeViewModel(navigationStore)));
     }
