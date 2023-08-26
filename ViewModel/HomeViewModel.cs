@@ -19,21 +19,21 @@ public class HomeViewModel : ViewModelBase
     public IEnumerable<FoodItemsViewModel> FoodItemsViewModels => _foodItemsViewModels;
 
     public RelayCommand<string> SearchItem { get; set; }
-    public ICommand NavigateToProduct { get;}
-    public ICommand NavigateToCart { get;}
-    private ObservableCollection<Product> menu;
-	public ObservableCollection<Product> Menu
-	{
-		get { return menu; }
-		set { menu = value; }
-	}
+    public ICommand NavigateToProduct { get; }
+    public ICommand NavigateToCart { get; }
+    private readonly ObservableCollection<Product> _menu;
+    public ObservableCollection<Product> Menu
+    {
+        get { return _menu; }
+        set { _menu = value; }
+    }
 
     public HomeViewModel(NavigationStore navigationStore)
     {
         //Manipulação da tabela do cardapio
         var database = new DatabaseService();
         //Lista todos os itens do menu
-        menu = database.ListAllMenu();
+        Menu = database.ListAllMenu();
 
         SearchItem = new RelayCommand<string>(SearchItemCommand);
 
@@ -61,11 +61,11 @@ public class HomeViewModel : ViewModelBase
     }
 
     //O método SearchItemCommand() é chamado quando o comando SearchItem é executado. 
-	private void SearchItemCommand(string item)
-	{
+    private void SearchItemCommand(string item)
+    {
         //Manipulação da tabela do cardapio
         var database = new DatabaseService();
         //Pesquisa por produto
-        menu = database.ListBySearch(item);
-	}
+        Menu = database.ListBySearch(item);
+    }
 }
