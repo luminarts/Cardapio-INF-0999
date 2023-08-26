@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FastFoodly.ViewModel
 {
-    public class FoodItemsViewModel : ViewModelBase
+    public class FoodItemsViewModel
     {
         public string Name { get; }
         public string Description { get; }

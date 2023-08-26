@@ -75,7 +75,7 @@
             </Grid>
         </StackPanel>
         
-        <!--<ScrollViewer Grid.Row="1">-->
+        <ScrollViewer Grid.Row="1">
             
             <Grid x:Name="ItemsGrid" Grid.Row="1" HorizontalAlignment="Center" >
 
@@ -186,13 +186,13 @@
                     </ItemsControl.ItemTemplate>
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
-                            <WrapPanel />
+                            <WrapPanel Width="900" />
                         </ItemsPanelTemplate>
                     </ItemsControl.ItemsPanel>
                 </ItemsControl>
                 
             </Grid>
-        <!--</ScrollViewer>-->
+        </ScrollViewer>
         <Button Grid.Row="1" Height="60" Width="60" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,40,50">
 
         </Button>
