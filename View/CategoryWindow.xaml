@@ -25,7 +25,9 @@
                 <ColumnDefinition Width="270"/>
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="1" Grid.Row="0">
-                <Button Width="Auto" Height="Auto" HorizontalAlignment="Left" VerticalAlignment="Center" Background="Transparent" Foreground="White" Margin="0,15,0,0">
+                <Button Width="Auto" Height="Auto" HorizontalAlignment="Left" VerticalAlignment="Center" 
+                        Background="Transparent" Foreground="White" Margin="0,15,0,0"
+                        Command="{Binding NavigateToHome}">
                     <TextBlock Text="&lt; Voltar" FontSize="14" VerticalAlignment="Center"/>
                 </Button>
             </StackPanel>
