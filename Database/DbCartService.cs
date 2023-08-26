@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.IO;
@@ -42,12 +43,12 @@ namespace FastFoodly
 			}
 		}
 
-		public List<CartItem> ListAllItems()
+		public ObservableCollection<CartItem> ListAllItems()
 		{
 			try
 			{
 				var conn = OpenConnection();
-				List<CartItem> cart = new List<CartItem>();
+				ObservableCollection<CartItem> cart = new ObservableCollection<CartItem>();
 				SqlCommand command = new SqlCommand("SELECT * FROM Carrinho", conn);
 
 				SqlDataReader reader = command.ExecuteReader();
@@ -85,7 +86,6 @@ namespace FastFoodly
 			try
 			{
 				var conn = OpenConnection();
-				List<CartItem> cart = new List<CartItem>();
 				SqlCommand command = new SqlCommand($"DELETE FROM carrinho WHERE idItem={itemId}", conn);
 
 				command.ExecuteReader();
