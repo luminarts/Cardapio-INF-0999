@@ -167,7 +167,7 @@
                                     <RectangleGeometry Rect="0,0,210,200" RadiusX="10" RadiusY="10"/>
                                 </Grid.Clip>
                                 <Rectangle Height="Auto" Width="Auto" RadiusX="10" RadiusY="10" Fill="White" Stroke="Silver"/>
-                                <Image VerticalAlignment="Top" Source="{Binding ImagePath}" Margin="0,-10,0,70" Stretch="Fill"/>
+                                <Image VerticalAlignment="Top" Source="{Binding ImagePath}" Width="200" Height="200" Margin="0,-10,0,70" Stretch="Fill"/>
                                 <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Height="Auto" Text="{Binding Name}"
                                 Width="155" FontSize="20" Foreground="White" Margin="10,5,0,0" />
                                 <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Height="29"  TextWrapping="Wrap" 
@@ -177,7 +177,7 @@
                                     <TextBlock HorizontalAlignment="Right" Height="14" TextWrapping="Wrap" 
                                             Text="A partir de" VerticalAlignment="Top" Width="51" FontSize="10" Foreground="#FFBDBDBD"/>
                                     <TextBlock HorizontalAlignment="Right" Height="18"  VerticalAlignment="Bottom" 
-                                            Width="58" FontSize="14" Foreground="#FF32CF52" FontWeight="Bold"><Run Text="{Binding Price, StringFormat=N2 }"/></TextBlock>
+                                            Width="58" FontSize="14" Foreground="#FF32CF52" FontWeight="Bold" ><Run Text="{Binding Price, StringFormat=N2 }" /></TextBlock>
                                 </StackPanel>
 
                                 <Button HorizontalAlignment="Left" Height="25" 
