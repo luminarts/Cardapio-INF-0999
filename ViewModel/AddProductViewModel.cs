@@ -17,18 +17,18 @@ namespace FastFoodly.ViewModel;
 public class AddProductViewModel : ViewModelBase
 {
 
-	private CartItem cartItem;
+	private CartItem _cartItem;
 	public CartItem CartItem
 	{
-		get { return cartItem; }
-		set { cartItem = value; }
+		get { return _cartItem; }
+        set => SetProperty(ref _cartItem, value);
 	}
 
-	private Product product;
+	private Product _product;
 	public Product Product
 	{
-		get { return product; }
-		set { product = value; }
+		get { return _product; }
+        set => SetProperty(ref _product, value);
 	}
 
 	private readonly NavigationStore _navigationStore;
@@ -46,12 +46,12 @@ public class AddProductViewModel : ViewModelBase
 		Product = database.GetProductByName(ProductName);
 		CartItem = new CartItem()
 		{
-			ProductId = product.ProductId,
-			Name = product.Name,
-			Price = product.Price,
+			ProductId = Product.ProductId,
+			Name = Product.Name,
+			Price = Product.Price,
 			Quantity = 1,
 			Observations = " ",
-			ImagePath = product.ImagePath
+			ImagePath = Product.ImagePath
 		};
 
 		_navigationStore = navigationStore;

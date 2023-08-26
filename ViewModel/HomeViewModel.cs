@@ -29,7 +29,7 @@ public class HomeViewModel : ViewModelBase
     {
         _navigationStore = navigationStore;
         //Manipulação da tabela do cardapio
-        var database = new DdMenuService();
+        var database = new DbMenuService();
         //Lista todos os itens do menu
         Menu = database.ListAllMenu();
 
