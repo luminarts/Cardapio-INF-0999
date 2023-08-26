@@ -22,7 +22,7 @@ public class HomeViewModel : ViewModelBase
     public ObservableCollection<Product> Menu
     {
         get { return _menu; }
-        set { _menu = value; }
+        set => SetProperty(ref _menu, value);
     }
 
     public HomeViewModel(NavigationStore navigationStore)
