@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.IO;
 using System.Printing;
 using System.Security.Cryptography;
 using FastFoodly.Models;
@@ -62,9 +63,10 @@ namespace FastFoodly
 							Name = reader.GetString(2),
 							Price = reader.GetDecimal(3) / 100,
 							Quantity = (int)reader.GetDecimal(4),
-							Observations = reader.GetString(5),
-							ImagePath = reader.GetString(6)
+							Observations = reader.GetString(5)
 						};
+	                    var ImagePath = reader.GetString(6) ?? "Assets/Images/no-image.jpg";
+                    	cartItem.ImagePath = new Uri(Path.GetFullPath(@ImagePath));
 						cart.Add(cartItem);
 					}
 				}

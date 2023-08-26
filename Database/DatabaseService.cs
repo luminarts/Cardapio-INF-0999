@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.IO;
 using System.Printing;
 using System.Security.Cryptography;
 using FastFoodly.Models;
@@ -44,17 +45,18 @@ namespace FastFoodly
                             Name = reader.GetString(1),
                             Price = reader.GetDecimal(2) / 100,
                             Description = reader.GetString(3),
-                            Ingredients = new List<string>(),
-                            Category = reader.GetString(5),
-                            ImagePath = reader.GetString(6) ?? "Assets/Images/no-image.jpg"
+                            Extras = new List<string>(),
+                            Category = reader.GetString(5)
                         };
 
                         // salva elementos na lista de ingredientes
                         var rawList = reader.GetString(4).Split(',');
                         for (int i = 0; i < rawList.Length; i++)
                         {
-                            produto.Ingredients?.Add(rawList[i]);
+                            produto.Extras?.Add(rawList[i]);
                         }
+                        var ImagePath = reader.GetString(6) ?? "Assets/Images/no-image.jpg";
+                        produto.ImagePath = new Uri(Path.GetFullPath(@ImagePath));
                         cardapio.Add(produto);
                     }
                 }
@@ -86,17 +88,18 @@ namespace FastFoodly
                             Name = reader.GetString(1),
                             Price = reader.GetDecimal(2) / 100,
                             Description = reader.GetString(3),
-                            Ingredients = new List<string>(),
-                            Category = reader.GetString(5),
-                            ImagePath = reader.GetString(6) ?? "Assets/Images/no-image.jpg"
+                            Extras = new List<string>(),
+                            Category = reader.GetString(5)
                         };
 
                         // salva elementos na lista de ingredientes
                         var rawList = reader.GetString(4).Split(',');
                         for (int i = 0; i < rawList.Length; i++)
                         {
-                            produto.Ingredients?.Add(rawList[i]);
+                            produto.Extras?.Add(rawList[i]);
                         }
+                        var ImagePath = reader.GetString(6) ?? "Assets/Images/no-image.jpg";
+                        produto.ImagePath = new Uri(Path.GetFullPath(@ImagePath));
                         menuByCategory.Add(produto);
                     }
                 }
@@ -128,17 +131,19 @@ namespace FastFoodly
                             Name = reader.GetString(1),
                             Price = reader.GetDecimal(2) / 100,
                             Description = reader.GetString(3),
-                            Ingredients = new List<string>(),
-                            Category = reader.GetString(5),
-                            ImagePath = reader.GetString(6) ?? "Assets/Images/no-image.jpg"
+                            Extras = new List<string>(),
+                            Category = reader.GetString(5)
                         };
 
                         // salva elementos na lista de ingredientes
                         var rawList = reader.GetString(4).Split(',');
                         for (int i = 0; i < rawList.Length; i++)
                         {
-                            produto.Ingredients?.Add(rawList[i]);
+                            produto.Extras?.Add(rawList[i]);
                         }
+
+                        var ImagePath = reader.GetString(6) ?? "Assets/Images/no-image.jpg";
+                        produto.ImagePath = new Uri(Path.GetFullPath(@ImagePath));
                         menuBySearch.Add(produto);
                     }
                 }
@@ -167,9 +172,11 @@ namespace FastFoodly
                     menuBySearch.Name = reader.GetString(1);
                     menuBySearch.Price = reader.GetDecimal(2) / 100;
                     menuBySearch.Description = reader.GetString(3);
-                    menuBySearch.Ingredients = new List<string>();
+                    menuBySearch.Extras = new List<string>();
                     menuBySearch.Category = reader.GetString(5);
-                    menuBySearch.ImagePath = reader.GetString(6) ?? "Assets/Images/no-image.jpg";
+
+                    var ImagePath = reader.GetString(6) ?? "Assets/Images/no-image.jpg";
+                    menuBySearch.ImagePath = new Uri(Path.GetFullPath(@ImagePath));
 
                     //salva valor do Id do produto
                     object value = reader.GetValue(0);
@@ -183,7 +190,7 @@ namespace FastFoodly
                     var rawList = reader.GetString(4).Split(',');
                     for (int i = 0; i < rawList.Length; i++)
                     {
-                        menuBySearch.Ingredients?.Add(rawList[i]);
+                        menuBySearch.Extras?.Add(rawList[i]);
                     }
                 }
                 return menuBySearch;
@@ -212,9 +219,12 @@ namespace FastFoodly
                         menuBySearch.Name = reader.GetString(1);
                         menuBySearch.Price = reader.GetDecimal(2) / 100;
                         menuBySearch.Description = reader.GetString(3);
-                        menuBySearch.Ingredients = new List<string>();
+                        menuBySearch.Extras = new List<string>();
                         menuBySearch.Category = reader.GetString(5);
-                        menuBySearch.ImagePath = reader.GetString(6) ?? "Assets/Images/no-image.jpg";
+                       
+                        var ImagePath = reader.GetString(6) ?? "Assets/Images/no-image.jpg";
+                        menuBySearch.ImagePath = new Uri(Path.GetFullPath(@ImagePath));
+
 
                         //salva valor do Id do produto
                         object value = reader.GetValue(0);
@@ -228,7 +238,7 @@ namespace FastFoodly
                         var rawList = reader.GetString(4).Split(',');
                         for (int i = 0; i < rawList.Length; i++)
                         {
-                            menuBySearch.Ingredients?.Add(rawList[i]);
+                            menuBySearch.Extras?.Add(rawList[i]);
                         }
                     }
 
