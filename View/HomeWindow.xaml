@@ -103,7 +103,8 @@
                             </Grid>
                         </Button.Content>
                     </Button>
-                    <Button Background="Transparent" BorderThickness="0">
+                    <Button Background="Transparent" BorderThickness="0" Command="{Binding NavigateToProduct}"
+                            CommandParameter="Batata frita">
                         <Button.Content>
                             <Grid Height="170" Background="White" Margin="10,0,0,0">
                                 <Grid.Clip>
