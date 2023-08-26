@@ -14,6 +14,7 @@ namespace FastFoodly.Models
         private string? description;
         private List<string>? ingredients;
         private string? category;
+        private string? imagePath;
 
         //Propriedade productId, que representa o id do produto.
         public int? ProductId
@@ -60,6 +61,13 @@ namespace FastFoodly.Models
             get { return category; }
             //método SetProperty para notificar os assinantes sobre a alteração e atualizar o valor da propriedade.
             set { SetProperty(ref category, value); }
+        }
+
+        public string? ImagePath
+        {
+            get { return imagePath; }
+            //método SetProperty para notificar os assinantes sobre a alteração e atualizar o valor da propriedade.
+            set { SetProperty(ref imagePath, value); }
         }
 
     }

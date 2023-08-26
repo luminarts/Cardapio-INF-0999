@@ -42,10 +42,11 @@ namespace FastFoodly
                         {
                             ProductId = (int)reader.GetDecimal(0),
                             Name = reader.GetString(1),
-                            Price = reader.GetDecimal(2),
+                            Price = reader.GetDecimal(2) / 100,
                             Description = reader.GetString(3),
                             Ingredients = new List<string>(),
-                            Category = reader.GetString(5)
+                            Category = reader.GetString(5),
+                            ImagePath = reader.GetString(6) ?? "Assets/Images/no-image.jpg"
                         };
 
                         // salva elementos na lista de ingredientes
@@ -83,10 +84,11 @@ namespace FastFoodly
                         {
                             ProductId = (int)reader.GetDecimal(0),
                             Name = reader.GetString(1),
-                            Price = reader.GetDecimal(2),
+                            Price = reader.GetDecimal(2) / 100,
                             Description = reader.GetString(3),
                             Ingredients = new List<string>(),
-                            Category = reader.GetString(5)
+                            Category = reader.GetString(5),
+                            ImagePath = reader.GetString(6) ?? "Assets/Images/no-image.jpg"
                         };
 
                         // salva elementos na lista de ingredientes
@@ -124,10 +126,11 @@ namespace FastFoodly
                         {
                             ProductId = (int)reader.GetDecimal(0),
                             Name = reader.GetString(1),
-                            Price = reader.GetDecimal(2),
+                            Price = reader.GetDecimal(2) / 100,
                             Description = reader.GetString(3),
                             Ingredients = new List<string>(),
-                            Category = reader.GetString(5)
+                            Category = reader.GetString(5),
+                            ImagePath = reader.GetString(6) ?? "Assets/Images/no-image.jpg"
                         };
 
                         // salva elementos na lista de ingredientes
@@ -162,10 +165,11 @@ namespace FastFoodly
                     //Salva as variaveis name, price, description e category
                     menuBySearch.ProductId = (int)reader.GetDecimal(0);
                     menuBySearch.Name = reader.GetString(1);
-                    menuBySearch.Price = reader.GetDecimal(2);
+                    menuBySearch.Price = reader.GetDecimal(2) / 100;
                     menuBySearch.Description = reader.GetString(3);
                     menuBySearch.Ingredients = new List<string>();
                     menuBySearch.Category = reader.GetString(5);
+                    menuBySearch.ImagePath = reader.GetString(6) ?? "Assets/Images/no-image.jpg";
 
                     //salva valor do Id do produto
                     object value = reader.GetValue(0);
@@ -202,14 +206,15 @@ namespace FastFoodly
                 SqlDataReader reader = command.ExecuteReader();
                 if (reader.HasRows)
                 {
-                   while (reader.Read())
+                    while (reader.Read())
                     {
-                         menuBySearch.ProductId = (int)reader.GetDecimal(0);
+                        menuBySearch.ProductId = (int)reader.GetDecimal(0);
                         menuBySearch.Name = reader.GetString(1);
-                        menuBySearch.Price = reader.GetDecimal(2);
+                        menuBySearch.Price = reader.GetDecimal(2) / 100;
                         menuBySearch.Description = reader.GetString(3);
                         menuBySearch.Ingredients = new List<string>();
                         menuBySearch.Category = reader.GetString(5);
+                        menuBySearch.ImagePath = reader.GetString(6) ?? "Assets/Images/no-image.jpg";
 
                         //salva valor do Id do produto
                         object value = reader.GetValue(0);
