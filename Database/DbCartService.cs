@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.IO;
 using System.Printing;
 using System.Security.Cryptography;
 using FastFoodly.Models;
@@ -29,7 +30,7 @@ namespace FastFoodly
 			try
 			{
 				var conn = OpenConnection();
-				SqlCommand command = new SqlCommand($"INSERT INTO carrinho VALUES({item.ProductId}, '{item.Name}', {item.Price}, {item.Quantity}, '{item.Observations}')", conn);
+				SqlCommand command = new SqlCommand($"INSERT INTO carrinho VALUES({item.ProductId}, '{item.Name}', {item.Price * 100}, {item.Quantity}, '{item.Observations}', '{item.ImagePath}')", conn);
 
 				command.ExecuteReader();
 				return "Success";
@@ -60,10 +61,12 @@ namespace FastFoodly
 							ItemId = (int)reader.GetDecimal(0),
 							ProductId = (int)reader.GetDecimal(1),
 							Name = reader.GetString(2),
-							Price = reader.GetDecimal(3),
+							Price = reader.GetDecimal(3) / 100,
 							Quantity = (int)reader.GetDecimal(4),
 							Observations = reader.GetString(5)
 						};
+	                    var ImagePath = reader.GetString(6) ?? "Assets/Images/no-image.jpg";
+                    	cartItem.ImagePath = new Uri(Path.GetFullPath(@ImagePath));
 						cart.Add(cartItem);
 					}
 				}

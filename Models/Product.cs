@@ -12,8 +12,9 @@ namespace FastFoodly.Models
         private string? name;
         private decimal? price;
         private string? description;
-        private List<string>? ingredients;
+        private List<string>? extras;
         private string? category;
+        private Uri? imagePath;
 
         //Propriedade productId, que representa o id do produto.
         public int? ProductId
@@ -47,12 +48,12 @@ namespace FastFoodly.Models
             set { SetProperty(ref description, value); }
         }
 
-        //Propriedade Ingredients, que representa os ingredientes do produto.
-        public List<string>? Ingredients
+        //Propriedade Extras, que representa os ingredientes do produto.
+        public List<string>? Extras
         {
-            get { return ingredients; }
+            get { return extras; }
             //método SetProperty para notificar os assinantes sobre a alteração e atualizar o valor da propriedade.
-            set { SetProperty(ref ingredients, value); }
+            set { SetProperty(ref extras, value); }
         }
 
         public string? Category
@@ -60,6 +61,13 @@ namespace FastFoodly.Models
             get { return category; }
             //método SetProperty para notificar os assinantes sobre a alteração e atualizar o valor da propriedade.
             set { SetProperty(ref category, value); }
+        }
+
+        public Uri? ImagePath
+        {
+            get { return imagePath; }
+            //método SetProperty para notificar os assinantes sobre a alteração e atualizar o valor da propriedade.
+            set { SetProperty(ref imagePath, value); }
         }
 
     }
