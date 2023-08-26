@@ -14,17 +14,29 @@ using System.IO;
 
 namespace FastFoodly.ViewModel;
 
+/// <summary>
+/// Classe que implementa o ViewModel para a View AddProductWindow
+/// Herda a classe ViewModelBase
+/// </summary>
 public class AddProductViewModel : ViewModelBase
 {
 
-	private CartItem cartItem;
+	private CartItem cartItem; ///< Atributo que guarda um item do carrinho
+
+	/// <summary>
+	/// Propriedade que guarda um item do carrinho
+	/// </summary>
 	public CartItem CartItem
 	{
 		get { return cartItem; }
 		set { cartItem = value; }
 	}
 
-	private Product product;
+	private Product product; ///< Atributo que guarda um produto
+
+	/// <summary>
+	/// Propriedade que guarda um produto
+	/// </summary>
 	public Product Product
 	{
 		get { return product; }
@@ -32,15 +44,38 @@ public class AddProductViewModel : ViewModelBase
 	}
 
 	private readonly NavigationStore _navigationStore;
-	//Essas propriedades representam os comandos que podem ser executados na ViewModel. 
-	//Os comandos são implementados utilizando a classe RelayCommand do Community Toolkit MVVM.
+
+	/// <summary>
+	/// Comando para executar um método que adicione um item no carrinho
+	/// O comando é implementado utilizando a classe RelayCommand do Community Toolkit MVVM.
+	/// </summary>
 	public RelayCommand AddToCart { get; set; }
+
+	/// <summary>
+	/// Comando para navegar para a HomeView novamente e visualizar a página inicial novamente
+	/// </summary>
 	public ICommand NavigateToHome { get; }
+
+	/// <summary>
+	/// Comando para navegar para a CartView e visualizar o carrinho
+	/// </summary>
 	public ICommand NavigateToCart { get; }
+
+	/// <summary>
+	/// Propriedade que guarda o nome de um produto
+	/// </summary>
 	public string ProductName { get; set; }
 
+	/// <summary>
+	/// Construtor da ViewModel da View AddProduct que mostra ao usuário a página que descreve um certo produto
+	/// Precisa receber o nome do produto e o registro de navegação atual para gerar essa View nova específica para esse produto
+	/// </summary>
+	/// <param name="productName"></param>
+	/// <param name="navigationStore"></param>
 	public AddProductViewModel(string productName, NavigationStore navigationStore)
 	{
+		_navigationStore = navigationStore;
+		// encontra o produto selecionado no banco de dados e cria um item de carrinho com ele
 		ProductName = productName;
 		var database = new DatabaseService();
 		Product = database.GetProductByName(ProductName);
@@ -54,8 +89,7 @@ public class AddProductViewModel : ViewModelBase
 			ImagePath = product.ImagePath
 		};
 		
-		_navigationStore = navigationStore;
-		
+		// cria os comandos da ViewModel
 		AddToCart = new RelayCommand(AddToCartCommand);
 		
 		NavigateToHome = new NavigateCommand<HomeViewModel>(
@@ -66,7 +100,9 @@ public class AddProductViewModel : ViewModelBase
             new NavigationService<CartViewModel>(navigationStore, () => new CartViewModel(navigationStore)));
 	}
 
-	//O método AddToCartCommand() é chamado quando o comando AddToCart é executado. 
+	/// <summary>
+	/// Método que é chamado quando o comando AddToCart é executado.
+	/// </summary>
 	private void AddToCartCommand()
 	{
 		var cart = new DbCartService();

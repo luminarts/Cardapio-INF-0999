@@ -9,11 +9,31 @@ using System.Collections.ObjectModel;
 
 namespace FastFoodly.ViewModel;
 
+/// <summary>
+/// Classe que implementa o ViewModel para a View CategoryWindow
+/// Herda a classe ViewModelBase
+/// </summary>
 public class CategoryViewModel : ViewModelBase
 {
-    private readonly NavigationStore _navigationStore;
+    private readonly NavigationStore _navigationStore; ///< Atributo que referencia o registro de navegação atual
+
+    /// <summary>
+    /// Comando para navegar de volta à página inicial Home
+    /// </summary>
     public ICommand NavigateToHome { get; set; }
+
+    /// <summary>
+    /// Propriedade que armazena o nome da categoria que será mostrada na tela
+    /// </summary>
     public string CategoryName { get; set; }
+
+    /// <summary>
+    /// Construtor da ViewModel da View Category que mostra ao usuário a página da categoria
+	/// Precisa receber o registro de navegação atual para gerar essa View nova
+    /// e o parâmetro referente ao nome da categoria que será exposta
+    /// </summary>
+    /// <param name="categoryName"></param>
+    /// <param name="navigationStore"></param>
     public CategoryViewModel(string categoryName, NavigationStore navigationStore)
     {
         CategoryName = categoryName;
