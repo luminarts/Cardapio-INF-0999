@@ -21,6 +21,7 @@ public class CartViewModel : ViewModelBase
     private readonly NavigationStore _navigationStore;
     public RelayCommand<int> DeleteItem { get; set; }
     public RelayCommand DeleteAllItems { get; set; }
+    public RelayCommand<Order> InsertOrder { get; set; }
     public ICommand NavigateToHome { get; set; }
     public CartViewModel(NavigationStore navigationStore)
     {
@@ -32,6 +33,7 @@ public class CartViewModel : ViewModelBase
 
         DeleteItem = new RelayCommand<int>(DeleteItemCommand);
         DeleteAllItems = new RelayCommand(DeleteAllItemsCommand);
+        InsertOrder = new RelayCommand<Order>(InsertOrderCommand);
 
         NavigateToHome = new NavigateCommand<HomeViewModel>(
             new NavigationService<HomeViewModel>(
@@ -56,5 +58,13 @@ public class CartViewModel : ViewModelBase
         cart.DeleteAllItems();
     }
 
-    //adicionar serviço de salvar pedido no banco de dados
+    //O método InsertOrderCommand() é chamado quando o comando InsertOrder é executado. 
+    private void InsertOrderCommand(Order order)
+    {
+        var orderDb = new DbOrderService();
+
+        //Insere o pedido no banco de dados
+        var id = orderDb.InsertOrder(order);
+    }
+    
 }

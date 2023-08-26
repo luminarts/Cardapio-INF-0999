@@ -25,7 +25,7 @@ public class CategoryViewModel : ViewModelBase
         CategoryName = categoryName;
 
         //Manipulação da tabela do cardapio
-        var database = new DatabaseService();
+        var database = new DbMenuService();
         //Lista de itens de uma determinada categoria
         MenuByCategory = database.ListByCategory(CategoryName);
 

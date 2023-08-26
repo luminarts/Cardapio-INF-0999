@@ -29,20 +29,20 @@ public class HomeViewModel : ViewModelBase
     {
         _navigationStore = navigationStore;
         //Manipulação da tabela do cardapio
-        var database = new DatabaseService();
+        var database = new DbMenuService();
         //Lista todos os itens do menu
         Menu = database.ListAllMenu();
 
         SearchItem = new RelayCommand<string>(SearchItemCommand);
-        
+
         NavigateToCategory = new CategoryCommand(
             new ParameterNavigationService<string, CategoryViewModel>(
                 navigationStore, (parameter) => new CategoryViewModel(parameter, navigationStore)));
-        
+
         NavigateToProduct = new ProductCommand(
             new ParameterNavigationService<string, AddProductViewModel>(
                 navigationStore, (parameter) => new AddProductViewModel(parameter, navigationStore)));
-        
+
         NavigateToCart = new NavigateCommand<CartViewModel>(
             new NavigationService<CartViewModel>(navigationStore, () => new CartViewModel(navigationStore)));
     }
@@ -51,7 +51,7 @@ public class HomeViewModel : ViewModelBase
     private void SearchItemCommand(string item)
     {
         //Manipulação da tabela do cardapio
-        var database = new DatabaseService();
+        var database = new DbMenuService();
         //Pesquisa por produto
         Menu = database.ListBySearch(item);
     }

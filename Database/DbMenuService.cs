@@ -10,11 +10,11 @@ using FastFoodly.Models;
 
 namespace FastFoodly
 {
-    public class DatabaseService
+    public class DbMenuService
     {
         private string _connectionString;
 
-        public DatabaseService()
+        public DbMenuService()
         {
             _connectionString = ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
         }
