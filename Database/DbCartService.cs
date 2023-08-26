@@ -66,8 +66,7 @@ namespace FastFoodly
 							Quantity = (int)reader.GetDecimal(4),
 							Observations = reader.GetString(5)
 						};
-	                    // var ImagePath = reader.GetString(6) ?? "Assets/Images/no-image.jpg";
-						string ImagePath = "Assets/Images/no-image.jpg";
+	                    string ImagePath = !reader.IsDBNull(6) && !string.IsNullOrEmpty(reader.GetString(6)) ? reader.GetString(6) : "Assets/Images/no-image.jpg";
                     	cartItem.ImagePath = new Uri(Path.GetFullPath(@ImagePath));
 						cart.Add(cartItem);
 					}
