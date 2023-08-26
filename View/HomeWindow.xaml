@@ -24,15 +24,13 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="270"/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="1" Width="Auto" Height="Auto" HorizontalAlignment="Left" VerticalAlignment="Top" Background="Transparent" Foreground="White" Margin="0,15,0,0">
-                <TextBlock Text="&lt; Voltar" FontSize="14" VerticalAlignment="Center"/>
-            </Button>
+            
             <TextBox Grid.Column="2" Text="Rua Saturnino Brito, 573 - Cidade Universitária 1&#x0a;(19) 3521-70001&#x0a;@fastfoodly" Height="Auto" Background="Transparent"
                      Foreground="White"  BorderThickness="0" HorizontalAlignment="Right" Margin="0,10,10,0"/>
 
             <Grid Grid.Row="1" Grid.Column="0">
                 <Image HorizontalAlignment="Left" VerticalAlignment="Top" 
-                        Source="\Assets\Images\LogoFastFoodly(1).png" Stretch="UniformToFill" MaxHeight="140" Margin="20,0,0,50"/>
+                        Source="\Assets\Images\LogoFastFoodly.png" Stretch="UniformToFill" MaxHeight="140" Margin="20,0,0,50"/>
             </Grid>
         </Grid>
         <!--StackPanel do Topo de Página-->
@@ -91,7 +89,7 @@
                 </StackPanel>
                 <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,10,0,10">
                     <Button Background="Transparent" BorderThickness="0" Command="{Binding NavigateToCategory}"
-                            CommandParameter="Lanches">
+                            CommandParameter="{Binding ElementName=TextCombo, Path=Text}">
                         <Button.Content>
                             <Grid Height="170" Background="White" Margin="0,0,0,0">
                                 <Grid.Clip>
@@ -99,12 +97,13 @@
                                 </Grid.Clip>
                                 <Rectangle Height="Auto" Width="Auto" RadiusX="10" RadiusY="10" Fill="White" Stroke="Silver"/>
                                 <Image VerticalAlignment="Top" Source="C:\Users\gusta\Cardapio-INF-0999\Assets\Images\front-view-burgers-stand.jpg" Margin="0,-10,0,70" Stretch="Fill"/>
-                                <TextBlock Text="Combos" FontSize="30" Foreground="Silver" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,14"/>
+                                <TextBlock x:Name="TextCombo" Text="Combos" FontSize="30" Foreground="Silver" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,14"/>
                             </Grid>
                         </Button.Content>
                     </Button>
-                    <Button Background="Transparent" BorderThickness="0" Command="{Binding NavigateToProduct}"
-                            CommandParameter="Batata frita">
+
+                    <Button Background="Transparent" BorderThickness="0" Command="{Binding NavigateToCategory}"
+                            CommandParameter="{Binding ElementName=TextLanches, Path=Text}">
                         <Button.Content>
                             <Grid Height="170" Background="White" Margin="10,0,0,0">
                                 <Grid.Clip>
@@ -112,11 +111,13 @@
                                 </Grid.Clip>
                                 <Rectangle Height="Auto" Width="Auto" RadiusX="10" RadiusY="10" Fill="White" Stroke="Silver"/>
                                 <Image VerticalAlignment="Top" Source="C:\Users\gusta\Cardapio-INF-0999\Assets\Images\front-view-burgers-stand.jpg" Margin="0,-10,0,70" Stretch="Fill"/>
-                                <TextBlock Text="Lanches" FontSize="30" Foreground="Silver" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,14"/>
+                                <TextBlock x:Name="TextLanches" Text="Lanches" FontSize="30" Foreground="Silver" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,14"/>
                             </Grid>
                         </Button.Content>
                     </Button>
-                    <Button Background="Transparent" BorderThickness="0">
+
+                    <Button Background="Transparent" BorderThickness="0" Command="{Binding NavigateToCategory}"
+                            CommandParameter="{Binding ElementName=TextAperitivos, Path=Text}">
                         <Button.Content>
                             <Grid Height="170" Background="White" Margin="10,0,0,0">
                                 <Grid.Clip>
@@ -124,11 +125,13 @@
                                 </Grid.Clip>
                                 <Rectangle Height="Auto" Width="Auto" RadiusX="10" RadiusY="10" Fill="White" Stroke="Silver"/>
                                 <Image VerticalAlignment="Top" Source="C:\Users\gusta\Cardapio-INF-0999\Assets\Images\front-view-burgers-stand.jpg" Margin="0,-10,0,70" Stretch="Fill"/>
-                                <TextBlock Text="Aperitivos" FontSize="30" Foreground="Silver" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,14"/>
+                                <TextBlock x:Name="TextAperitivos" Text="Aperitivos" FontSize="30" Foreground="Silver" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,14"/>
                             </Grid>
                         </Button.Content>
                     </Button>
-                    <Button Background="Transparent" BorderThickness="0">
+
+                    <Button Background="Transparent" BorderThickness="0" Command="{Binding NavigateToCategory}"
+                            CommandParameter="{Binding ElementName=TextBebidas, Path=Text}">
                         <Button.Content>
                             <Grid Height="170" Background="White" Margin="10,0,0,0">
                                 <Grid.Clip>
@@ -136,11 +139,13 @@
                                 </Grid.Clip>
                                 <Rectangle Height="Auto" Width="Auto" RadiusX="10" RadiusY="10" Fill="White" Stroke="Silver"/>
                                 <Image VerticalAlignment="Top" Source="C:\Users\gusta\Cardapio-INF-0999\Assets\Images\front-view-burgers-stand.jpg" Margin="0,-10,0,70" Stretch="Fill"/>
-                                <TextBlock Text="Bebidas" FontSize="30" Foreground="Silver" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,14"/>
+                                <TextBlock x:Name="TextBebidas" Text="Bebidas" FontSize="30" Foreground="Silver" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,14"/>
                             </Grid>
                         </Button.Content>
                     </Button>
-                    <Button Background="Transparent" BorderThickness="0">
+
+                    <Button Background="Transparent" BorderThickness="0" Command="{Binding NavigateToCategory}"
+                            CommandParameter="{Binding ElementName=TextSobremesas, Path=Text}">
                         <Button.Content>
                             <Grid Height="170" Background="White" Margin="10,0,0,0">
                                 <Grid.Clip>
@@ -148,7 +153,7 @@
                                 </Grid.Clip>
                                 <Rectangle Height="Auto" Width="Auto" RadiusX="10" RadiusY="10" Fill="White" Stroke="Silver"/>
                                 <Image VerticalAlignment="Top" Source="C:\Users\gusta\Cardapio-INF-0999\Assets\Images\front-view-burgers-stand.jpg" Margin="0,-10,0,70" Stretch="Fill"/>
-                                <TextBlock Text="Sobremesas" FontSize="30" Foreground="Silver" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,14"/>
+                                <TextBlock x:Name="TextSobremesas" Text="Sobremesas" FontSize="30" Foreground="Silver" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,14"/>
                             </Grid>
                         </Button.Content>
                     </Button>
@@ -181,7 +186,9 @@
                                 </StackPanel>
 
                                 <Button HorizontalAlignment="Left" Height="25" 
-                                    VerticalAlignment="Bottom" Width="44" Margin="10,50,0,3"/>
+                                        VerticalAlignment="Bottom" Width="44" Margin="10,50,0,3"
+                                        Command="{Binding DataContext.NavigateToProduct, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"
+                                        CommandParameter="{Binding ElementName=TextProduct, Path=Text}"/>
 
                             </Grid>
                         </DataTemplate>

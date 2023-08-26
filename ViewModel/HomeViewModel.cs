@@ -22,24 +22,29 @@ public class HomeViewModel : ViewModelBase
     public ObservableCollection<Product> Menu
     {
         get { return _menu; }
-        set { _menu = value; }
+        set => SetProperty(ref _menu, value);
     }
 
     public HomeViewModel(NavigationStore navigationStore)
     {
+        _navigationStore = navigationStore;
         //Manipulação da tabela do cardapio
         var database = new DatabaseService();
         //Lista todos os itens do menu
         Menu = database.ListAllMenu();
 
         SearchItem = new RelayCommand<string>(SearchItemCommand);
-
-        _navigationStore = navigationStore;
-
-
-        NavigateToCategory = new CategoryCommand(new ParameterNavigationService<string, CategoryViewModel>(navigationStore, (parameter) => new CategoryViewModel(parameter, navigationStore)));
-        NavigateToProduct = new ProductCommand(new ParameterNavigationService<string, AddProductViewModel>(navigationStore, (parameter) => new AddProductViewModel(parameter, navigationStore)));
-        NavigateToCart = new NavigateCommand<CartViewModel>(new NavigationService<CartViewModel>(navigationStore, () => new CartViewModel(navigationStore)));
+        
+        NavigateToCategory = new CategoryCommand(
+            new ParameterNavigationService<string, CategoryViewModel>(
+                navigationStore, (parameter) => new CategoryViewModel(parameter, navigationStore)));
+        
+        NavigateToProduct = new ProductCommand(
+            new ParameterNavigationService<string, AddProductViewModel>(
+                navigationStore, (parameter) => new AddProductViewModel(parameter, navigationStore)));
+        
+        NavigateToCart = new NavigateCommand<CartViewModel>(
+            new NavigationService<CartViewModel>(navigationStore, () => new CartViewModel(navigationStore)));
     }
 
     //O método SearchItemCommand() é chamado quando o comando SearchItem é executado. 
