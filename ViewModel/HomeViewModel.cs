@@ -21,8 +21,8 @@ public class HomeViewModel : ViewModelBase
     public RelayCommand<string> SearchItem { get; set; }
     public ICommand NavigateToProduct { get;}
     public ICommand NavigateToCart { get;}
-    private List<Product> menu;
-	public List<Product> Menu
+    private ObservableCollection<Product> menu;
+	public ObservableCollection<Product> Menu
 	{
 		get { return menu; }
 		set { menu = value; }
