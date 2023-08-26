@@ -14,7 +14,7 @@ namespace FastFoodly.Models
         private decimal? price;
         private int? quantity;
         private string? observations;
-        private string? imagePath;
+        private Uri? imagePath;
 
         //Propriedade itemId, que representa o id do item do carrinho.
         public int ItemId
@@ -65,7 +65,7 @@ namespace FastFoodly.Models
             set { SetProperty(ref observations, value); }
         }
 
-        public string? ImagePath
+        public Uri? ImagePath
         {
             get { return imagePath; }
             //método SetProperty para notificar os assinantes sobre a alteração e atualizar o valor da propriedade.

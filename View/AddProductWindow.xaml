@@ -93,7 +93,7 @@
                 </Viewbox>
 
                 <Viewbox Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,40,0" MaxHeight="{Binding MaxHeight, ElementName=PicturesPanel}" MinHeight="50">
-                    <Image Source="C:\Users\gusta\Cardapio-INF-0999\Assets\Images\closeup-shot-burger-with-bacon-cheese-red-coffee-mug.jpg"
+                    <Image Source="{Binding CartItem.ImagePath}"
                            Stretch="UniformToFill" />
                 </Viewbox>
             </Grid>
@@ -105,7 +105,7 @@
             <TextBlock FontSize="10" Foreground="White">A partir de</TextBlock>
             <TextBlock FontSize="10" Foreground="White" Text="{Binding CartItem.Price, StringFormat=N2 }"></TextBlock>
             <TextBlock FontSize="10" Height="auto" Width="auto" HorizontalAlignment="Left" VerticalAlignment="Top"
-                       Text="nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. &#10;Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. &#10;Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+                       Text="{Binding Product.Description}"
                        Margin="0,10,0,20"
                        Foreground="White"/>
 
@@ -161,7 +161,7 @@
                             </Grid.ColumnDefinitions>
 
                             <TextBlock Margin="15" FontSize="18" Text="Adicionar" />
-                            <TextBlock Margin="200,15,0,0" FontSize="18" Text="R$30,00" Grid.Column="2"/>
+                            <TextBlock Margin="200,15,0,0" FontSize="18" Text="R$ 30,00" Grid.Column="2"/>
                         </Grid>
                     </DataTemplate>
                 </Button.ContentTemplate>

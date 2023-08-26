@@ -27,6 +27,16 @@ public class AddProductViewModel : ViewModelBase
 			cartItem = value;
 		}
 	}
+	private Product product;
+
+	public Product Product
+	{
+		get { return product; }
+		set
+		{
+			product = value;
+		}
+	}
 
 	private readonly NavigationStore _navigationStore;
 	//Essas propriedades representam os comandos que podem ser executados na ViewModel. 
@@ -39,14 +49,14 @@ public class AddProductViewModel : ViewModelBase
 	{
 		ProductName = productName;
 		var database = new DatabaseService();
-		Product product = database.GetProductByName(ProductName);
+		Product = database.GetProductByName(ProductName);
 		CartItem = new CartItem()
 		{
 			ProductId = product.ProductId,
 			Name = product.Name,
 			Price = product.Price,
-			Quantity = 1,//pega o valor da variavel que vai ter biding
-			Observations = " ",//pega o valor da variavel de oservacoes
+			Quantity = 1,
+			Observations = " ",
 			ImagePath = product.ImagePath
 		};
 		_navigationStore = navigationStore;
@@ -59,6 +69,7 @@ public class AddProductViewModel : ViewModelBase
 	{
 		var cart = new DbCartService();
 
+		//Configurar observações de acordo com o que foi selecionado.
 		//Adição de item ao carrinho
 		cart.InsertItem(CartItem);
 	}
