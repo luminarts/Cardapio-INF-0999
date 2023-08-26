@@ -27,19 +27,40 @@ public class HomeViewModel : ViewModelBase
 
     public HomeViewModel(NavigationStore navigationStore)
     {
+        _navigationStore = navigationStore;
         //Manipulação da tabela do cardapio
         var database = new DatabaseService();
         //Lista todos os itens do menu
         Menu = database.ListAllMenu();
 
         SearchItem = new RelayCommand<string>(SearchItemCommand);
+        
+        NavigateToCategory = new CategoryCommand(
+            new ParameterNavigationService<string, CategoryViewModel>(
+                navigationStore, (parameter) => new CategoryViewModel(parameter, navigationStore)));
+        
+        NavigateToProduct = new ProductCommand(
+            new ParameterNavigationService<string, AddProductViewModel>(
+                navigationStore, (parameter) => new AddProductViewModel(parameter, navigationStore)));
+        
+        NavigateToCart = new NavigateCommand<CartViewModel>(
+            new NavigationService<CartViewModel>(navigationStore, () => new CartViewModel(navigationStore)));
 
-        _navigationStore = navigationStore;
-
-
-        NavigateToCategory = new CategoryCommand(new ParameterNavigationService<string, CategoryViewModel>(navigationStore, (parameter) => new CategoryViewModel(parameter, navigationStore)));
-        NavigateToProduct = new ProductCommand(new ParameterNavigationService<string, AddProductViewModel>(navigationStore, (parameter) => new AddProductViewModel(parameter, navigationStore)));
-        NavigateToCart = new NavigateCommand<CartViewModel>(new NavigationService<CartViewModel>(navigationStore, () => new CartViewModel(navigationStore)));
+        _foodItemsViewModels = new ObservableCollection<FoodItemsViewModel>()
+        {
+            new FoodItemsViewModel("Batata frita","Um delicioso hamburguer de carne bovina de 200g com lascas de bacon crocantes e um queijo cheddar derretido de dar água na boca"/*, 29.99*/, "Assets/Images/front-view-burgers-stand.jpg"),
+            new FoodItemsViewModel("X-Egg","Um delicioso hamburguer de ovo bovino de 200g com lascas de ovo crocantes e um queijo cheddar derretido de dar água na boca"/*, 29.99*/, "Assets\\Images\\front-view-burgers-stand.jpg"),
+            new FoodItemsViewModel("X-Tudo","Um delicioso hamburguer de tudo bovino de 200g com lascas de tudo crocantes e um queijo cheddar derretido de dar água na boca"/*, 29.99*/, "\\Assets\\Images\\front-view-burgers-stand.jpg"),
+            new FoodItemsViewModel("X-Tudo","Um delicioso hamburguer de tudo bovino de 200g com lascas de tudo crocantes e um queijo cheddar derretido de dar água na boca"/*, 29.99*/, "\\Assets\\Images\\front-view-burgers-stand.jpg"),
+            new FoodItemsViewModel("X-Tudo","Um delicioso hamburguer de tudo bovino de 200g com lascas de tudo crocantes e um queijo cheddar derretido de dar água na boca"/*, 29.99*/, "\\Assets\\Images\\front-view-burgers-stand.jpg"),
+            new FoodItemsViewModel("X-Tudo","Um delicioso hamburguer de tudo bovino de 200g com lascas de tudo crocantes e um queijo cheddar derretido de dar água na boca"/*, 29.99*/, "\\Assets\\Images\\front-view-burgers-stand.jpg"),
+            new FoodItemsViewModel("X-Tudo","Um delicioso hamburguer de tudo bovino de 200g com lascas de tudo crocantes e um queijo cheddar derretido de dar água na boca"/*, 29.99*/, "\\Assets\\Images\\front-view-burgers-stand.jpg"),
+            new FoodItemsViewModel("X-Tudo","Um delicioso hamburguer de tudo bovino de 200g com lascas de tudo crocantes e um queijo cheddar derretido de dar água na boca"/*, 29.99*/, "\\Assets\\Images\\front-view-burgers-stand.jpg"),
+            new FoodItemsViewModel("X-Tudo","Um delicioso hamburguer de tudo bovino de 200g com lascas de tudo crocantes e um queijo cheddar derretido de dar água na boca"/*, 29.99*/, "\\Assets\\Images\\front-view-burgers-stand.jpg"),
+            new FoodItemsViewModel("X-Tudo","Um delicioso hamburguer de tudo bovino de 200g com lascas de tudo crocantes e um queijo cheddar derretido de dar água na boca"/*, 29.99*/, "\\Assets\\Images\\front-view-burgers-stand.jpg"),
+            new FoodItemsViewModel("X-Tudo","Um delicioso hamburguer de tudo bovino de 200g com lascas de tudo crocantes e um queijo cheddar derretido de dar água na boca"/*, 29.99*/, "\\Assets\\Images\\front-view-burgers-stand.jpg"),
+            new FoodItemsViewModel("X-Tudo","Um delicioso hamburguer de tudo bovino de 200g com lascas de tudo crocantes e um queijo cheddar derretido de dar água na boca"/*, 29.99*/, "\\Assets\\Images\\front-view-burgers-stand.jpg")
+        };
     }
 
     //O método SearchItemCommand() é chamado quando o comando SearchItem é executado. 
