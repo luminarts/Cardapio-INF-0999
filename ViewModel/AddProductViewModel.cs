@@ -42,7 +42,7 @@ public class AddProductViewModel : ViewModelBase
 	public AddProductViewModel(string productName, NavigationStore navigationStore)
 	{
 		ProductName = productName;
-		var database = new DatabaseService();
+		var database = new DbMenuService();
 		Product = database.GetProductByName(ProductName);
 		CartItem = new CartItem()
 		{
@@ -53,17 +53,17 @@ public class AddProductViewModel : ViewModelBase
 			Observations = " ",
 			ImagePath = product.ImagePath
 		};
-		
+
 		_navigationStore = navigationStore;
-		
+
 		AddToCart = new RelayCommand(AddToCartCommand);
-		
+
 		NavigateToHome = new NavigateCommand<HomeViewModel>(
 			new NavigationService<HomeViewModel>(
 				navigationStore, () => new HomeViewModel(navigationStore)));
 
 		NavigateToCart = new NavigateCommand<CartViewModel>(
-            new NavigationService<CartViewModel>(navigationStore, () => new CartViewModel(navigationStore)));
+			new NavigationService<CartViewModel>(navigationStore, () => new CartViewModel(navigationStore)));
 	}
 
 	//O método AddToCartCommand() é chamado quando o comando AddToCart é executado. 
