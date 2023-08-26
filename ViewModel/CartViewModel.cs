@@ -25,6 +25,7 @@ public class CartViewModel : ViewModelBase
     public ICommand NavigateToHome { get; set; }
     public CartViewModel(NavigationStore navigationStore)
     {
+        _navigationStore = navigationStore;
         //Manipulação da tabela Carrinho
         var cart = new DbCartService();
         //Lista todos os itens do carrinho
@@ -32,9 +33,10 @@ public class CartViewModel : ViewModelBase
 
 		DeleteItem = new RelayCommand<int>(DeleteItemCommand);
 		DeleteAllItems = new RelayCommand(DeleteAllItemsCommand);
-        
-        _navigationStore = navigationStore;
-        NavigateToHome = new NavigateCommand<HomeViewModel>(new NavigationService<HomeViewModel>(navigationStore, () => new HomeViewModel(navigationStore)));
+
+        NavigateToHome = new NavigateCommand<HomeViewModel>(
+            new NavigationService<HomeViewModel>(
+                navigationStore, () => new HomeViewModel(navigationStore)));
     }
 
     //O método DeleteItemCommand() é chamado quando o comando DeleteItem é executado. 

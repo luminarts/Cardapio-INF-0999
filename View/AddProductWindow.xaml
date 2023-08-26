@@ -59,7 +59,8 @@
                     Foreground="White"
                     Background="Transparent"
                     BorderBrush="Transparent"
-                    Margin="400,0,0,0">
+                    Margin="400,0,0,0"
+                    Command="{Binding NavigateToHome}">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock VerticalAlignment="Center">Ícone</TextBlock>
                     <TextBlock Margin="20,0,0,0" FontSize="28"> Cardápio</TextBlock>
@@ -70,7 +71,8 @@
                     Foreground="White"
                     Background="Transparent"
                     BorderBrush="Transparent"
-                    Margin="10,0,0,0">
+                    Margin="10,0,0,0"
+                    Command="{Binding NavigateToCart}">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock VerticalAlignment="Center">Ícone</TextBlock>
                     <TextBlock Margin="20,0,0,0" FontSize="28"> Pedidos</TextBlock>
