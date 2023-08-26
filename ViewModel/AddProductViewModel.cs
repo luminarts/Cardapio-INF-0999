@@ -36,6 +36,7 @@ public class AddProductViewModel : ViewModelBase
 	//Os comandos são implementados utilizando a classe RelayCommand do Community Toolkit MVVM.
 	public RelayCommand AddToCart { get; set; }
 	public ICommand NavigateToHome { get; }
+	public ICommand NavigateToCart { get; }
 	public string ProductName { get; set; }
 
 	public AddProductViewModel(string productName, NavigationStore navigationStore)
@@ -52,9 +53,17 @@ public class AddProductViewModel : ViewModelBase
 			Observations = " ",
 			ImagePath = product.ImagePath
 		};
+		
 		_navigationStore = navigationStore;
+		
 		AddToCart = new RelayCommand(AddToCartCommand);
-		NavigateToHome = new NavigateCommand<HomeViewModel>(new NavigationService<HomeViewModel>(navigationStore, () => new HomeViewModel(navigationStore)));
+		
+		NavigateToHome = new NavigateCommand<HomeViewModel>(
+			new NavigationService<HomeViewModel>(
+				navigationStore, () => new HomeViewModel(navigationStore)));
+
+		NavigateToCart = new NavigateCommand<CartViewModel>(
+            new NavigationService<CartViewModel>(navigationStore, () => new CartViewModel(navigationStore)));
 	}
 
 	//O método AddToCartCommand() é chamado quando o comando AddToCart é executado. 
