@@ -56,8 +56,8 @@ namespace FastFoodly
                         {
                             produto.Extras?.Add(rawList[i]);
                         }
-                        // string ImagePath = reader.GetString(6) != null ? reader.GetString(6) : "Assets/Images/no-image.jpg";
-                        string ImagePath = "Assets/Images/combo-1.jpg";//trocar pra default depois
+                        string ImagePath = !reader.IsDBNull(6) && !string.IsNullOrEmpty(reader.GetString(6)) ? reader.GetString(6) : "Assets/Images/no-image.jpg";
+                        // string ImagePath = "Assets/Images/combo-1.jpg";//trocar pra default depois
                         produto.ImagePath = new Uri(Path.GetFullPath(@ImagePath));
                         cardapio.Add(produto);
                     }
@@ -226,7 +226,7 @@ namespace FastFoodly
                         menuBySearch.Description = reader.GetString(3);
                         menuBySearch.Extras = new List<string>();
                         menuBySearch.Category = reader.GetString(5);
-                       
+
                         // var ImagePath = reader.GetString(6) ?? "Assets/Images/no-image.jpg";
                         string ImagePath = "Assets/Images/no-image.jpg";
                         menuBySearch.ImagePath = new Uri(Path.GetFullPath(@ImagePath));
