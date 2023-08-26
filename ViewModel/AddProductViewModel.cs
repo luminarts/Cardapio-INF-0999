@@ -18,24 +18,17 @@ public class AddProductViewModel : ViewModelBase
 {
 
 	private CartItem cartItem;
-
 	public CartItem CartItem
 	{
 		get { return cartItem; }
-		set
-		{
-			cartItem = value;
-		}
+		set { cartItem = value; }
 	}
-	private Product product;
 
+	private Product product;
 	public Product Product
 	{
 		get { return product; }
-		set
-		{
-			product = value;
-		}
+		set { product = value; }
 	}
 
 	private readonly NavigationStore _navigationStore;
