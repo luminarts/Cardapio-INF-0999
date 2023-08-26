@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.IO;
@@ -25,12 +26,12 @@ namespace FastFoodly
             return connection;
         }
 
-        public List<Product> ListAllMenu()
+        public ObservableCollection<Product> ListAllMenu()
         {
             try
             {
                 var conn = OpenConnection();
-                List<Product> cardapio = new List<Product>();
+                ObservableCollection<Product> cardapio = new ObservableCollection<Product>();
                 SqlCommand command = new SqlCommand("SELECT * FROM Cardapio", conn);
 
                 SqlDataReader reader = command.ExecuteReader();
@@ -56,7 +57,7 @@ namespace FastFoodly
                             produto.Extras?.Add(rawList[i]);
                         }
                         // string ImagePath = reader.GetString(6) != null ? reader.GetString(6) : "Assets/Images/no-image.jpg";
-                        string ImagePath = "Assets/Images/no-image.jpg";
+                        string ImagePath = "Assets/Images/combo-1.jpg";//trocar pra default depois
                         produto.ImagePath = new Uri(Path.GetFullPath(@ImagePath));
                         cardapio.Add(produto);
                     }
@@ -70,11 +71,11 @@ namespace FastFoodly
             }
         }
 
-        public List<Product> ListByCategory(string categoria)
+        public ObservableCollection<Product> ListByCategory(string categoria)
         {
             try
             {
-                List<Product> menuByCategory = new List<Product>();
+                ObservableCollection<Product> menuByCategory = new ObservableCollection<Product>();
                 var conn = OpenConnection();
                 SqlCommand command = new SqlCommand($"SELECT * FROM cardapio WHERE categoria='{categoria}'", conn);
                 SqlDataReader reader = command.ExecuteReader();
@@ -114,11 +115,11 @@ namespace FastFoodly
             }
         }
 
-        public List<Product> ListBySearch(string searchString)
+        public ObservableCollection<Product> ListBySearch(string searchString)
         {
             try
             {
-                List<Product> menuBySearch = new List<Product>();
+                ObservableCollection<Product> menuBySearch = new ObservableCollection<Product>();
                 var conn = OpenConnection();
                 SqlCommand command = new SqlCommand($"SELECT * FROM cardapio WHERE descricao LIKE '%{searchString}%' OR nome LIKE '%{searchString}%'", conn);
                 SqlDataReader reader = command.ExecuteReader();

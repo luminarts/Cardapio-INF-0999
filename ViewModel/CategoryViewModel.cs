@@ -5,6 +5,7 @@ using FastFoodly.Services;
 using FastFoodly.Stores;
 using FastFoodly.Models;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace FastFoodly.ViewModel;
 
@@ -20,7 +21,7 @@ public class CategoryViewModel : ViewModelBase
         //Manipulação da tabela do cardapio
         var database = new DatabaseService();
         //Lista de itens de uma determinada categoria
-        List<Product> menuByCategory = database.ListByCategory(CategoryName);
+        ObservableCollection<Product> menuByCategory = database.ListByCategory(CategoryName);
 
         _navigationStore = navigationStore;
         NavigateToHome = new NavigateCommand<HomeViewModel>(new NavigationService<HomeViewModel>(navigationStore, () => new HomeViewModel(navigationStore)));

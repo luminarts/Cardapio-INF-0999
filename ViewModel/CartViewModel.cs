@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Windows.Input;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -27,7 +28,7 @@ public class CartViewModel : ViewModelBase
         //Manipulação da tabela Carrinho
         var cart = new DbCartService();
         //Lista todos os itens do carrinho
-        List<CartItem> cartItems = cart.ListAllItems();
+        ObservableCollection<CartItem> cartItems = cart.ListAllItems();
 
 		DeleteItem = new RelayCommand<int>(DeleteItemCommand);
 		DeleteAllItems = new RelayCommand(DeleteAllItemsCommand);
