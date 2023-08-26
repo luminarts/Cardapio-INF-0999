@@ -101,7 +101,7 @@
 
         <!--StackPanel responsável por guardar a descrição do produto-->
         <StackPanel Margin="10,20,0,0" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Height="Auto" >
-            <TextBlock FontSize="30" Foreground="White">X-Bacon</TextBlock>
+            <TextBlock FontSize="30" Foreground="White" Text="{Binding Product.Name}"></TextBlock>
             <TextBlock FontSize="10" Foreground="White">A partir de R$28,00</TextBlock>
             <TextBlock FontSize="10" Height="auto" Width="auto" HorizontalAlignment="Left" VerticalAlignment="Top"
                        Text="nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. &#10;Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. &#10;Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"

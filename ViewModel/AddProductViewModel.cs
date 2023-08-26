@@ -17,13 +17,36 @@ namespace FastFoodly.ViewModel;
 public class AddProductViewModel : ViewModelBase
 {
 	private Product product;
+	private int quantity;
+
+	private string observations;
 	public Product Product
 	{
 		get { return product; }
 		set
 		{
-			// SetProperty(ref product, value);
-			product = value;
+			SetProperty(ref product, value);
+			// product = value;
+		}
+	}
+
+	public int Quantity
+	{
+		get { return quantity; }
+		set
+		{
+			SetProperty(ref quantity, value);
+			// quantity = value;
+		}
+	}
+
+	public string Observations
+	{
+		get { return observations; }
+		set
+		{
+			SetProperty(ref observations, value);
+			// observations = value;
 		}
 	}
 
@@ -31,7 +54,7 @@ public class AddProductViewModel : ViewModelBase
 	//Essas propriedades representam os comandos que podem ser executados na ViewModel. 
 	//Os comandos são implementados utilizando a classe RelayCommand do Community Toolkit MVVM.
 	public RelayCommand AddToCart { get; set; }
-	public ICommand NavigateToHome {get;}
+	public ICommand NavigateToHome { get; }
 	public string ProductName { get; set; }
 
 	public AddProductViewModel(string productName, NavigationStore navigationStore)
@@ -44,9 +67,7 @@ public class AddProductViewModel : ViewModelBase
 		NavigateToHome = new NavigateCommand<HomeViewModel>(new NavigationService<HomeViewModel>(navigationStore, () => new HomeViewModel(navigationStore)));
 	}
 
-	//O método AddToCartCommand() é chamado quando o comando Play é executado. Ele envia uma mensagem através do 
-	//mecanismo de mensagens para definir uma nova mídia selecionada e solicita a reprodução. Também define a 
-	//propriedade IsPlaying como true.
+	//O método AddToCartCommand() é chamado quando o comando AddToCart é executado. 
 	private void AddToCartCommand()
 	{
 		var cart = new DbCartService();
@@ -57,8 +78,8 @@ public class AddProductViewModel : ViewModelBase
 			ProductId = Product.ProductId,
 			Name = Product.Name,
 			Price = Product.Price,
-			Quantity = 1,//pega o valor da variavel que vai ter biding
-			Observations = "Sem sal"//pega o valor da variavel de oservacoes
+			Quantity = Quantity,//pega o valor da variavel que vai ter biding
+			Observations = Observations//pega o valor da variavel de oservacoes
 		};
 		cart.InsertItem(item);
 	}
