@@ -16,37 +16,15 @@ namespace FastFoodly.ViewModel;
 
 public class AddProductViewModel : ViewModelBase
 {
-	private Product product;
-	private int quantity;
 
-	private string observations;
-	public Product Product
+	private CartItem cartItem;
+
+	public CartItem CartItem
 	{
-		get { return product; }
+		get { return cartItem; }
 		set
 		{
-			SetProperty(ref product, value);
-			// product = value;
-		}
-	}
-
-	public int Quantity
-	{
-		get { return quantity; }
-		set
-		{
-			SetProperty(ref quantity, value);
-			// quantity = value;
-		}
-	}
-
-	public string Observations
-	{
-		get { return observations; }
-		set
-		{
-			SetProperty(ref observations, value);
-			// observations = value;
+			cartItem = value;
 		}
 	}
 
@@ -61,7 +39,16 @@ public class AddProductViewModel : ViewModelBase
 	{
 		ProductName = productName;
 		var database = new DatabaseService();
-		Product = database.GetProductByName(ProductName);
+		Product product = database.GetProductByName(ProductName);
+		CartItem = new CartItem()
+		{
+			ProductId = product.ProductId,
+			Name = product.Name,
+			Price = product.Price,
+			Quantity = 1,//pega o valor da variavel que vai ter biding
+			Observations = " ",//pega o valor da variavel de oservacoes
+			ImagePath = product.ImagePath
+		};
 		_navigationStore = navigationStore;
 		AddToCart = new RelayCommand(AddToCartCommand);
 		NavigateToHome = new NavigateCommand<HomeViewModel>(new NavigationService<HomeViewModel>(navigationStore, () => new HomeViewModel(navigationStore)));
@@ -73,15 +60,7 @@ public class AddProductViewModel : ViewModelBase
 		var cart = new DbCartService();
 
 		//Adição de item ao carrinho
-		var item = new CartItem()
-		{
-			ProductId = Product.ProductId,
-			Name = Product.Name,
-			Price = Product.Price,
-			Quantity = Quantity,//pega o valor da variavel que vai ter biding
-			Observations = Observations//pega o valor da variavel de oservacoes
-		};
-		cart.InsertItem(item);
+		cart.InsertItem(CartItem);
 	}
 
 }

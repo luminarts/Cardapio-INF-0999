@@ -14,7 +14,7 @@ namespace FastFoodly.Models
         private string? description;
         private List<string>? ingredients;
         private string? category;
-        private string? ImagePath;
+        private string? imagePath;
 
         //Propriedade productId, que representa o id do produto.
         public int? ProductId

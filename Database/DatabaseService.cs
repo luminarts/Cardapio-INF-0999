@@ -42,7 +42,7 @@ namespace FastFoodly
                         {
                             ProductId = (int)reader.GetDecimal(0),
                             Name = reader.GetString(1),
-                            Price = reader.GetDecimal(2),
+                            Price = reader.GetDecimal(2) / 100,
                             Description = reader.GetString(3),
                             Ingredients = new List<string>(),
                             Category = reader.GetString(5),
@@ -84,7 +84,7 @@ namespace FastFoodly
                         {
                             ProductId = (int)reader.GetDecimal(0),
                             Name = reader.GetString(1),
-                            Price = reader.GetDecimal(2),
+                            Price = reader.GetDecimal(2) / 100,
                             Description = reader.GetString(3),
                             Ingredients = new List<string>(),
                             Category = reader.GetString(5),
@@ -126,7 +126,7 @@ namespace FastFoodly
                         {
                             ProductId = (int)reader.GetDecimal(0),
                             Name = reader.GetString(1),
-                            Price = reader.GetDecimal(2),
+                            Price = reader.GetDecimal(2) / 100,
                             Description = reader.GetString(3),
                             Ingredients = new List<string>(),
                             Category = reader.GetString(5),
@@ -165,7 +165,7 @@ namespace FastFoodly
                     //Salva as variaveis name, price, description e category
                     menuBySearch.ProductId = (int)reader.GetDecimal(0);
                     menuBySearch.Name = reader.GetString(1);
-                    menuBySearch.Price = reader.GetDecimal(2);
+                    menuBySearch.Price = reader.GetDecimal(2) / 100;
                     menuBySearch.Description = reader.GetString(3);
                     menuBySearch.Ingredients = new List<string>();
                     menuBySearch.Category = reader.GetString(5);
@@ -210,7 +210,7 @@ namespace FastFoodly
                     {
                         menuBySearch.ProductId = (int)reader.GetDecimal(0);
                         menuBySearch.Name = reader.GetString(1);
-                        menuBySearch.Price = reader.GetDecimal(2);
+                        menuBySearch.Price = reader.GetDecimal(2) / 100;
                         menuBySearch.Description = reader.GetString(3);
                         menuBySearch.Ingredients = new List<string>();
                         menuBySearch.Category = reader.GetString(5);
