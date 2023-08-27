@@ -39,5 +39,24 @@
                VerticalAlignment="Top" 
                Width="134" 
                Source="/IconePedidoConfirmado.png"/>
+        <TextBlock 
+            Height="83" 
+            Margin="379,557,0,0"  
+            VerticalAlignment="Top" 
+            FontSize="56" 
+            FontFamily="Segoe UI Symbol" 
+            FontWeight="Bold" 
+            Foreground="White" 
+            Text="N° do Pedido:"
+            HorizontalAlignment="Left" Width="384" TextAlignment="Center"/>
+        <TextBlock 
+            Height="83" 
+            Margin="768,548,0,0"  
+            VerticalAlignment="Top" 
+            FontSize="64" 
+            FontFamily="Segoe UI Symbol" 
+            FontWeight="Bold" 
+            Foreground="White"
+            HorizontalAlignment="Left" Width="199"><Run Language="pt-br" Text="{Binding OrderId}"/></TextBlock>
     </Grid>
 </UserControl>
