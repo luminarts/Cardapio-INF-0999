@@ -15,15 +15,22 @@ using Microsoft.Extensions.DependencyInjection;
 namespace FastFoodly
 {
     /// <summary>
-    /// Interaction logic for App.xaml
+    /// Classe de inicialização da aplicação. Ela gera todas as outras classes e permite que o app funcione.
     /// </summary>
     public partial class App : Application
     {
         private readonly IServiceProvider _serviceProvider;
+
+        /// <summary>
+        /// Construtor que gera um serviço de inicialização por injeção de dependência. 
+        /// Permite que o aplicativo inicialize com uma janela inicial associada a MainWindow.
+        /// </summary>
         public App()
         {
+            // cria um serviço de Dependecy Injection
             IServiceCollection services = new ServiceCollection();
 
+            // adiciona as classes iniciais para a aplicação e associa a MainWindow com a HomeWindow
             services.AddSingleton<NavigationStore>();
             services.AddSingleton<MainViewModel>();
 
@@ -38,6 +45,11 @@ namespace FastFoodly
             _serviceProvider = services.BuildServiceProvider();
         }
 
+        /// <summary>
+        /// Método executado no início da aplicação.
+        /// Navega o sistema para a HomeWindow e faz o display da MainWindow.
+        /// </summary>
+        /// <param name="e"></param>
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
@@ -49,6 +61,12 @@ namespace FastFoodly
             MainWindow.Show();  
         }
 
+        /// <summary>
+        /// Cria o serviço de navegação inicial do sistema para que ele possa ir até a HomeWindow
+        /// Recebe o serviço de dependecy injection como parâmetro
+        /// </summary>
+        /// <param name="serviceProvider"></param>
+        /// <returns>Retorna uma referência para o serviço criado do tipo INavigationService</returns>
         private INavigationService CreateHomeNavigationService(IServiceProvider serviceProvider)
         {
             return new NavigationService<CategoryViewModel>(
@@ -56,6 +74,9 @@ namespace FastFoodly
                 () => serviceProvider.GetRequiredService<CategoryViewModel>());
         }
 
+        /// <summary>
+        /// Conecta o aplicativo com o Banco de Dados
+        /// </summary>
         string connectionString = ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
     }
 }

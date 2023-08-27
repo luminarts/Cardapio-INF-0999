@@ -4,19 +4,23 @@ using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace FastFoodly.Models
 {
-    //A classe ObservableObject, fornecida pelo Community Toolkit MVVM, permite a notificação de alterações de propriedades.
-    //A classe Produto guarda as informações sobre o produto do cardápio
+    /// <summary>
+    /// A classe ObservableObject, fornecida pelo Community Toolkit MVVM, permite a notificação de alterações de propriedades.
+    /// A classe Produto guarda as informações sobre o produto do cardápio.
+    /// </summary>
     public class Product : ObservableObject
     {
-        private int? productId;
-        private string? name;
-        private decimal? price;
-        private string? description;
-        private List<string>? extras;
-        private string? category;
-        private Uri? imagePath;
+        private int? productId; ///< Atributo que guarda o Id do produto do item do carrinho
+        private string? name; ///< Atributo que guarda o nome do item do carrinho
+        private decimal? price; ///< Atributo que guarda o preço do item do carrinho
+        private string? description; ///< Atributo que guarda a descrição do produto
+        private List<string>? extras; ///< Atributo que guarda uma lista de extras que podem ser customizados
+        private string? category; ///< Atributo que guarda a categoria que o produto pertence
+        private Uri? imagePath; ///< Atributo que guarda o caminho para acessar a imagem do produto
 
-        //Propriedade productId, que representa o id do produto.
+        /// <summary>
+        /// Propriedade productId, que representa o id do produto.
+        /// </summary>
         public int? ProductId
         {
             get { return productId; }
@@ -24,7 +28,9 @@ namespace FastFoodly.Models
             set { SetProperty(ref productId, value); }
         }
 
-        //Propriedade Name, que representa o nome do produto.
+        /// <summary>
+        /// Propriedade Name, que representa o nome do produto.
+        /// </summary>
         public string? Name
         {
             get { return name; }
@@ -32,7 +38,9 @@ namespace FastFoodly.Models
             set { SetProperty(ref name, value); }
         }
 
-        //Propriedade price, que representa o preço do produto.
+        /// <summary>
+        /// Propriedade price, que representa o preço do produto.
+        /// </summary>
         public decimal? Price
         {
             get { return price; }
@@ -40,7 +48,9 @@ namespace FastFoodly.Models
             set { SetProperty(ref price, value); }
         }
 
-        //Propriedade Description, que representa o descrição do produto.
+        /// <summary>
+        /// Propriedade Description, que representa o descrição do produto.
+        /// </summary>
         public string? Description
         {
             get { return description; }
@@ -48,7 +58,9 @@ namespace FastFoodly.Models
             set { SetProperty(ref description, value); }
         }
 
-        //Propriedade Extras, que representa os ingredientes do produto.
+        /// <summary>
+        /// Propriedade Extras, que representa os ingredientes do produto.
+        /// </summary>
         public List<string>? Extras
         {
             get { return extras; }
@@ -56,6 +68,9 @@ namespace FastFoodly.Models
             set { SetProperty(ref extras, value); }
         }
 
+        /// <summary>
+        /// Propriedade Category, que representa a categoria do produto.
+        /// </summary>
         public string? Category
         {
             get { return category; }
@@ -63,6 +78,9 @@ namespace FastFoodly.Models
             set { SetProperty(ref category, value); }
         }
 
+        /// <summary>
+        /// Propriedade ImagePath, que representa o caminho da imagem do produto.
+        /// </summary>
         public Uri? ImagePath
         {
             get { return imagePath; }
