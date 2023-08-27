@@ -88,6 +88,7 @@
                     <TextBlock Text="Categorias" FontSize="38" Foreground="Silver" Margin="0,10,0,0" />
                 </StackPanel>
                 <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,10,0,10">
+                    
                     <Button Background="Transparent" BorderThickness="0" Command="{Binding NavigateToCategory}"
                             CommandParameter="{Binding ElementName=TextCombo, Path=Text}">
                         <Button.Content>
@@ -101,6 +102,7 @@
                             </Grid>
                         </Button.Content>
                     </Button>
+                    
 
                     <Button Background="Transparent" BorderThickness="0" Command="{Binding NavigateToCategory}"
                             CommandParameter="{Binding ElementName=TextLanches, Path=Text}">
@@ -162,9 +164,11 @@
 
                 <StackPanel Grid.Row="2" Margin="0,70,0,0">
                     <TextBlock Text="Cardápio" FontSize="38" Foreground="Silver" />
+                    
                 </StackPanel>
                 
                 <ItemsControl Grid.Row="3" ItemsSource="{Binding Menu}">
+                
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <Grid Height="200" Background="White" Margin="20,20,0,0" >
@@ -184,6 +188,7 @@
                                     <TextBlock HorizontalAlignment="Right" Height="18"  VerticalAlignment="Bottom" 
                                             Width="58" FontSize="14" Foreground="#FF32CF52" FontWeight="Bold" ><Run Text="{Binding Price, StringFormat=N2 }" /></TextBlock>
                                 </StackPanel>
+                                
 
                                 <Button HorizontalAlignment="Left" Height="25" 
                                         VerticalAlignment="Bottom" Width="44" Margin="10,50,0,3"
@@ -202,6 +207,9 @@
                 
             </Grid>
         </ScrollViewer>
+
+        <!--Botão do carrinho-->
+        <Button Grid.Row="0" HorizontalAlignment="Left" Height="25" VerticalAlignment="Bottom" Width="44" Margin="100,50,0,3"/>
 
         <Button Grid.Row="1" Height="60" Width="60" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,40,50"
                 Command="{Binding NavigateToCart}">
