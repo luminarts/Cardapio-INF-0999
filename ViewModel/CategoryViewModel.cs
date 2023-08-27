@@ -27,9 +27,16 @@ public class CategoryViewModel : ViewModelBase
     /// </summary>
     public string CategoryName { get; set; }
 
+    private ObservableCollection<Product> _menuByCategory;
+    public ObservableCollection<Product> MenuByCategory
+    {
+        get { return _menuByCategory; }
+        set => SetProperty(ref _menuByCategory, value);
+    }
+
     /// <summary>
     /// Construtor da ViewModel da View Category que mostra ao usuário a página da categoria
-	/// Precisa receber o registro de navegação atual para gerar essa View nova
+	  /// Precisa receber o registro de navegação atual para gerar essa View nova
     /// e o parâmetro referente ao nome da categoria que será exposta
     /// </summary>
     /// <param name="categoryName"></param>
@@ -37,13 +44,16 @@ public class CategoryViewModel : ViewModelBase
     public CategoryViewModel(string categoryName, NavigationStore navigationStore)
     {
         CategoryName = categoryName;
-        
+
         //Manipulação da tabela do cardapio
-        var database = new DatabaseService();
+        var database = new DbMenuService();
         //Lista de itens de uma determinada categoria
-        ObservableCollection<Product> menuByCategory = database.ListByCategory(CategoryName);
+        MenuByCategory = database.ListByCategory(CategoryName);
 
         _navigationStore = navigationStore;
-        NavigateToHome = new NavigateCommand<HomeViewModel>(new NavigationService<HomeViewModel>(navigationStore, () => new HomeViewModel(navigationStore)));
+        
+        NavigateToHome = new NavigateCommand<HomeViewModel>(
+            new NavigationService<HomeViewModel>(
+                navigationStore, () => new HomeViewModel(navigationStore)));
     }
 }

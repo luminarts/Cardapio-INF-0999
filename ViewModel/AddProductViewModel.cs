@@ -20,27 +20,26 @@ namespace FastFoodly.ViewModel;
 /// </summary>
 public class AddProductViewModel : ViewModelBase
 {
-
-	private CartItem cartItem; ///< Atributo que guarda um item do carrinho
-
-	/// <summary>
+	private CartItem _cartItem; ///< Atributo que guarda um item do carrinho
+  
+  /// <summary>
 	/// Propriedade que guarda um item do carrinho
 	/// </summary>
 	public CartItem CartItem
 	{
-		get { return cartItem; }
-		set { cartItem = value; }
+		get { return _cartItem; }
+        set => SetProperty(ref _cartItem, value);
 	}
 
-	private Product product; ///< Atributo que guarda um produto
-
-	/// <summary>
+	private Product _product; ///< Atributo que guarda um produto
+  
+  /// <summary>
 	/// Propriedade que guarda um produto
 	/// </summary>
 	public Product Product
 	{
-		get { return product; }
-		set { product = value; }
+		get { return _product; }
+        set => SetProperty(ref _product, value);
 	}
 
 	private readonly NavigationStore _navigationStore;
@@ -77,27 +76,29 @@ public class AddProductViewModel : ViewModelBase
 		_navigationStore = navigationStore;
 		// encontra o produto selecionado no banco de dados e cria um item de carrinho com ele
 		ProductName = productName;
-		var database = new DatabaseService();
+		var database = new DbMenuService();
 		Product = database.GetProductByName(ProductName);
 		CartItem = new CartItem()
 		{
-			ProductId = product.ProductId,
-			Name = product.Name,
-			Price = product.Price,
+			ProductId = Product.ProductId,
+			Name = Product.Name,
+			Price = Product.Price,
 			Quantity = 1,
 			Observations = " ",
-			ImagePath = product.ImagePath
+			ImagePath = Product.ImagePath
 		};
 		
 		// cria os comandos da ViewModel
+		_navigationStore = navigationStore;
+
 		AddToCart = new RelayCommand(AddToCartCommand);
-		
+
 		NavigateToHome = new NavigateCommand<HomeViewModel>(
 			new NavigationService<HomeViewModel>(
 				navigationStore, () => new HomeViewModel(navigationStore)));
 
 		NavigateToCart = new NavigateCommand<CartViewModel>(
-            new NavigationService<CartViewModel>(navigationStore, () => new CartViewModel(navigationStore)));
+			new NavigationService<CartViewModel>(navigationStore, () => new CartViewModel(navigationStore)));
 	}
 
 	/// <summary>

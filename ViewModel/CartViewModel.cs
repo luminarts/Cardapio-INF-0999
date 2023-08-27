@@ -16,16 +16,16 @@ namespace FastFoodly.ViewModel;
 /// </summary>
 public class CartViewModel : ViewModelBase
 {
-    private CartItem cartItem; ///< Atributo para guardar um item do carrinho.
-
+    private ObservableCollection<CartItem> _cartItems; ///< Atributo para guardar uma ista de itens de carrinho
+    
     /// <summary>
-    /// Propriedade para guardar um item do carrinho
+    /// Propriedade para guardar uma lista de itens de carrinho
     /// </summary>
-	public CartItem CartItem
-	{
-		get { return cartItem; }
-		set { cartItem = value; }
-	}
+    public ObservableCollection<CartItem> CartItems
+    {
+        get { return _cartItems; }
+        set => SetProperty(ref _cartItems, value);
+    }
     private readonly NavigationStore _navigationStore; ///< Atributo que referencia o registro de navegação atual
 
     /// <summary>
@@ -38,6 +38,8 @@ public class CartViewModel : ViewModelBase
     /// </summary>
     public RelayCommand DeleteAllItems { get; set; }
 
+    public RelayCommand<Order> InsertOrder { get; set; }
+    
     /// <summary>
     /// Comando para navegar até a página inicial novamente
     /// </summary>
@@ -45,8 +47,8 @@ public class CartViewModel : ViewModelBase
 
     /// <summary>
     /// Construtor da ViewModel da View Cart que mostra ao usuário a página que mostra o carrinho
-	/// Precisa receber o registro de navegação atual para gerar essa View nova
-	/// </summary>
+	  /// Precisa receber o registro de navegação atual para gerar essa View nova
+	  /// </summary>
     /// <param name="navigationStore"></param>
     public CartViewModel(NavigationStore navigationStore)
     {
@@ -54,11 +56,14 @@ public class CartViewModel : ViewModelBase
         //Manipulação da tabela Carrinho
         var cart = new DbCartService();
         //Lista todos os itens do carrinho
-        ObservableCollection<CartItem> cartItems = cart.ListAllItems();
+        CartItems = cart.ListAllItems();
 
         // Cria os comandos
-		DeleteItem = new RelayCommand<int>(DeleteItemCommand);
-		DeleteAllItems = new RelayCommand(DeleteAllItemsCommand);
+        DeleteItem = new RelayCommand<int>(DeleteItemCommand);
+        
+        DeleteAllItems = new RelayCommand(DeleteAllItemsCommand);
+        
+        InsertOrder = new RelayCommand<Order>(InsertOrderCommand);
 
         NavigateToHome = new NavigateCommand<HomeViewModel>(
             new NavigationService<HomeViewModel>(
@@ -69,24 +74,31 @@ public class CartViewModel : ViewModelBase
     /// Método chamado quando o comando DeleteItem é executado.
     /// </summary>
     /// <param name="itemId"></param>
-	private void DeleteItemCommand(int itemId)
-	{
-		var cart = new DbCartService();
+	  private void DeleteItemCommand(int itemId)
+	  {
+		    var cart = new DbCartService();
 
-	    //Deleta um item especifico do carrinho
+        //Deleta um item especifico do carrinho
         cart.DeleteItem(itemId);
-	}
+    }
 
     /// <summary>
     /// Método chamado quando o comando DeleteAllItems é executado.
     /// </summary>
-	private void DeleteAllItemsCommand()
-	{
-		var cart = new DbCartService();
+	  private void DeleteAllItemsCommand()
+	  {
+		    var cart = new DbCartService();
 
-	    //Deleta todos os itens do carrihno
+        //Deleta todos os itens do carrihno
         cart.DeleteAllItems();
-	}
+    }
 
-    //adicionar serviço de salvar pedido no banco de dados
+    //O método InsertOrderCommand() é chamado quando o comando InsertOrder é executado. 
+    private void InsertOrderCommand(Order order)
+    {
+        var orderDb = new DbOrderService();
+
+        //Insere o pedido no banco de dados
+        var id = orderDb.InsertOrder(order);
+    }
 }
