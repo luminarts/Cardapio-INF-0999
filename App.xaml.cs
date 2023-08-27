@@ -28,7 +28,7 @@ namespace FastFoodly
             services.AddSingleton<MainViewModel>();
 
             services.AddSingleton<INavigationService>(s => CreateHomeNavigationService(s));
-            services.AddTransient<HomeViewModel>(s => new HomeViewModel(s.GetRequiredService<NavigationStore>()));
+            services.AddTransient<CategoryViewModel>(s => new CategoryViewModel("Lanches",s.GetRequiredService<NavigationStore>()));
 
             services.AddSingleton<MainWindow>(s => new MainWindow
             {
@@ -51,9 +51,9 @@ namespace FastFoodly
 
         private INavigationService CreateHomeNavigationService(IServiceProvider serviceProvider)
         {
-            return new NavigationService<HomeViewModel>(
+            return new NavigationService<CategoryViewModel>(
                 serviceProvider.GetRequiredService<NavigationStore>(),
-                () => serviceProvider.GetRequiredService<HomeViewModel>());
+                () => serviceProvider.GetRequiredService<CategoryViewModel>());
         }
 
         string connectionString = ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
