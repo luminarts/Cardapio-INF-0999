@@ -35,7 +35,7 @@ namespace FastFoodly
             services.AddSingleton<MainViewModel>();
 
             services.AddSingleton<INavigationService>(s => CreateHomeNavigationService(s));
-            services.AddTransient<CategoryViewModel>(s => new CategoryViewModel("Lanches",s.GetRequiredService<NavigationStore>()));
+            services.AddTransient<AddProductViewModel>(s => new AddProductViewModel("Lanches",s.GetRequiredService<NavigationStore>()));
 
             services.AddSingleton<MainWindow>(s => new MainWindow
             {
@@ -69,9 +69,9 @@ namespace FastFoodly
         /// <returns>Retorna uma referência para o serviço criado do tipo INavigationService</returns>
         private INavigationService CreateHomeNavigationService(IServiceProvider serviceProvider)
         {
-            return new NavigationService<CategoryViewModel>(
+            return new NavigationService<AddProductViewModel>(
                 serviceProvider.GetRequiredService<NavigationStore>(),
-                () => serviceProvider.GetRequiredService<CategoryViewModel>());
+                () => serviceProvider.GetRequiredService<AddProductViewModel>());
         }
 
         /// <summary>
